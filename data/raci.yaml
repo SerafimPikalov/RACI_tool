@@ -1,0 +1,852 @@
+activity_groups:
+- group_title: Goals & Performance
+  roles:
+  - Delivery Manager
+  - Team lead
+  - Senior Team Lead
+  activities:
+  - name: Define goal-setting framework
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Senior Team Lead:
+      - I
+  - name: Set team-level goals
+    depends_on:
+    - group: Goals & Performance
+      activity: Define goal-setting framework
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Senior Team Lead:
+      - I
+  - name: Track goal progress
+    depends_on:
+    - group: Goals & Performance
+      activity: Set team-level goals
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Senior Team Lead:
+      - I
+  - name: Align team goals to company objectives
+    depends_on:
+    - group: Goals & Performance
+      activity: Define goal-setting framework
+    - group: Goals & Performance
+      activity: Set team-level goals
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Senior Team Lead:
+      - I
+  - name: Define performance review framework
+    depends_on:
+    - group: Goals & Performance
+      activity: Define goal-setting framework
+    assignments:
+      Delivery Manager:
+      - R
+      Team lead:
+      - C
+      Senior Team Lead:
+      - A
+  - name: Conduct individual performance reviews
+    depends_on:
+    - group: Goals & Performance
+      activity: Define performance review framework
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Senior Team Lead:
+      - C
+  description: Anchor the portfolio with clear objectives and KPIs before defining
+    how teams work.
+- group_title: SDLC & Process Management
+  roles:
+  - Delivery Manager
+  - Team lead
+  - Product Owner
+  - Senior Team Lead
+  - Tech lead
+  activities:
+  - name: Approve major process changes
+    depends_on:
+    - group: Goals & Performance
+      activity: Align team goals to company objectives
+    assignments:
+      Delivery Manager:
+      - R
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - A
+      Tech lead:
+      - C
+  - name: Define and maintain SDLC framework
+    depends_on:
+    - group: SDLC & Process Management
+      activity: Approve major process changes
+    details: (Discovery/Delivery stages)
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - C
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+  - name: Establish Jira/Confluence structure
+    depends_on:
+    - group: SDLC & Process Management
+      activity: Define and maintain SDLC framework
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - C
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - I
+  - name: Implement team-specific processes
+    depends_on:
+    - group: SDLC & Process Management
+      activity: Define and maintain SDLC framework
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+  - name: Define delivery metrics/KPIs
+    depends_on:
+    - group: Goals & Performance
+      activity: Track goal progress
+    - group: SDLC & Process Management
+      activity: Define and maintain SDLC framework
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+  - name: Monitor and report delivery metrics
+    depends_on:
+    - group: SDLC & Process Management
+      activity: Define delivery metrics/KPIs
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - I
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - I
+  - name: Drive process improvement initiatives
+    depends_on:
+    - group: SDLC & Process Management
+      activity: Monitor and report delivery metrics
+    - group: SDLC & Process Management
+      activity: Implement team-specific processes
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+  description: Codify the operating model once the targets are known.
+- group_title: Discovery Stage
+  roles:
+  - Delivery Manager
+  - Team lead
+  - Product Owner
+  - Senior Team Lead
+  - Tech lead
+  - Customer
+  activities:
+  - name: Define discovery framework
+    depends_on:
+    - group: SDLC & Process Management
+      activity: Define and maintain SDLC framework
+    details: (templates, exit criteria)
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - C
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - I
+      Customer:
+      - I
+  - name: Run simple feature discovery sessions
+    depends_on:
+    - group: Discovery Stage
+      activity: Define discovery framework
+    assignments:
+      Delivery Manager:
+      - I
+      Team lead:
+      - R
+      Product Owner:
+      - A
+      Tech lead:
+      - C
+      Customer:
+      - C
+  - name: Run complex/cross-team discovery
+    depends_on:
+    - group: Discovery Stage
+      activity: Run simple feature discovery sessions
+    assignments:
+      Delivery Manager:
+      - R
+      Team lead:
+      - C
+      Product Owner:
+      - A
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+      Customer:
+      - C
+  - name: Validate requirements are implementation-ready
+    depends_on:
+    - group: Discovery Stage
+      activity: Run simple feature discovery sessions
+    - group: Discovery Stage
+      activity: Run complex/cross-team discovery
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      Product Owner:
+      - A
+      Tech lead:
+      - C
+      Customer:
+      - I
+  - name: Manage discovery timeline/prevent scope creep
+    depends_on:
+    - group: Discovery Stage
+      activity: Define discovery framework
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - C
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - I
+      Customer:
+      - I
+  - name: Identify technical risks/constraints
+    depends_on:
+    - group: Discovery Stage
+      activity: Run complex/cross-team discovery
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Tech lead:
+      - R
+      - A
+      Customer:
+      - I
+  description: Feed prioritized, well-understood work into delivery.
+- group_title: Delivery Stage - Planning & Execution
+  roles:
+  - Delivery Manager
+  - Team lead
+  - Product Owner
+  - Senior Team Lead
+  - Tech lead
+  activities:
+  - name: Sprint/iteration planning
+    depends_on:
+    - group: SDLC & Process Management
+      activity: Implement team-specific processes
+    - group: Discovery Stage
+      activity: Validate requirements are implementation-ready
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - C
+      Tech lead:
+      - C
+  - name: Backlog prioritization (team-level)
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint/iteration planning
+    assignments:
+      Delivery Manager:
+      - I
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - C
+      Tech lead:
+      - C
+  - name: Cross-team priority conflicts
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Backlog prioritization (team-level)
+    - group: Discovery Stage
+      activity: Manage discovery timeline/prevent scope creep
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - C
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - I
+  - name: Story sizing and estimation
+    depends_on:
+    - group: Discovery Stage
+      activity: Validate requirements are implementation-ready
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+  - name: Sprint execution
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint/iteration planning
+    - group: Delivery Stage - Planning & Execution
+      activity: Story sizing and estimation
+    assignments:
+      Delivery Manager:
+      - I
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - I
+      Tech lead:
+      - C
+  - name: Daily standups
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint execution
+    assignments:
+      Delivery Manager:
+      - I
+      Team lead:
+      - R
+      - A
+      Tech lead:
+      - C
+  - name: Remove blockers (team-level)
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Daily standups
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - I
+      Tech lead:
+      - C
+  - name: Remove blockers (cross-team/infrastructure/PRE)
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Remove blockers (team-level)
+    - group: Delivery Stage - Planning & Execution
+      activity: Cross-team priority conflicts
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+  - name: Facilitate team retrospectives
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint execution
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - I
+      Tech lead:
+      - C
+  - name: Facilitate sprint reviews
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint execution
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - I
+      Tech lead:
+      - C
+  - name: Facilitate feature retrospectives
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Facilitate sprint reviews
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - C
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+  description: Execute against the pipeline that discovery creates.
+- group_title: Quality & Risk Management
+  roles:
+  - Delivery Manager
+  - Team lead
+  - Tech lead
+  - Product Owner
+  - Senior Team Lead
+  activities:
+  - name: Define quality standards
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint execution
+    - group: SDLC & Process Management
+      activity: Define and maintain SDLC framework
+    assignments:
+      Delivery Manager:
+      - R
+      Team lead:
+      - C
+      Tech lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - A
+  - name: Enforce quality gates
+    depends_on:
+    - group: Quality & Risk Management
+      activity: Define quality standards
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint execution
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      - C
+      Team lead:
+      - C
+      Tech lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - C
+  - name: Code review standards
+    depends_on:
+    - group: Quality & Risk Management
+      activity: Define quality standards
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - C
+      Tech lead:
+      - R
+      - A
+      Senior Team Lead:
+      - I
+  - name: Technical debt prioritization
+    depends_on:
+    - group: Quality & Risk Management
+      activity: Code review standards
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint execution
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - C
+      Tech lead:
+      - R
+      - A
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+  description: Apply governance and assurance gates before anything ships.
+- group_title: Release & Deployment
+  roles:
+  - Delivery Manager
+  - Team lead
+  - Product Owner
+  - Senior Team Lead
+  - Tech lead
+  - PRE
+  activities:
+  - name: Define release process framework
+    depends_on:
+    - group: Quality & Risk Management
+      activity: Enforce quality gates
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint execution
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - C
+  - name: Plan cross-team release coordination
+    depends_on:
+    - group: Release & Deployment
+      activity: Define release process framework
+    - group: Delivery Stage - Planning & Execution
+      activity: Cross-team priority conflicts
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - C
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - C
+  - name: Approve release scope
+    depends_on:
+    - group: Release & Deployment
+      activity: Plan cross-team release coordination
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint execution
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - C
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - I
+  - name: Quality gates enforcement
+    depends_on:
+    - group: Quality & Risk Management
+      activity: Enforce quality gates
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - C
+  - name: Execute deployment
+    depends_on:
+    - group: Release & Deployment
+      activity: Approve release scope
+    - group: Release & Deployment
+      activity: Quality gates enforcement
+    assignments:
+      Delivery Manager:
+      - I
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - R
+      - A
+  - name: Production monitoring (immediate post-release)
+    depends_on:
+    - group: Release & Deployment
+      activity: Execute deployment
+    assignments:
+      Delivery Manager:
+      - I
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - R
+      - A
+  - name: Rollback decision
+    depends_on:
+    - group: Release & Deployment
+      activity: Execute deployment
+    - group: Release & Deployment
+      activity: Production monitoring (immediate post-release)
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - A
+      Tech lead:
+      - C
+      PRE:
+      - R
+  - name: Release communication to stakeholders
+    depends_on:
+    - group: Release & Deployment
+      activity: Approve release scope
+    - group: Release & Deployment
+      activity: Execute deployment
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - I
+      PRE:
+      - I
+  description: Move approved increments into production.
+- group_title: Platform Support & Incidents
+  roles:
+  - Delivery Manager
+  - Team lead
+  - Product Owner
+  - Senior Team Lead
+  - Tech lead
+  - PRE
+  activities:
+  - name: Define support process framework
+    depends_on:
+    - group: Release & Deployment
+      activity: Define release process framework
+    - group: Release & Deployment
+      activity: Production monitoring (immediate post-release)
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - C
+  - name: Handle L0 incidents
+    depends_on:
+    - group: Platform Support & Incidents
+      activity: Define support process framework
+    - group: Release & Deployment
+      activity: Production monitoring (immediate post-release)
+    assignments:
+      Delivery Manager:
+      - I
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - R
+      - A
+  - name: Triage platform L1 support/incidents requests
+    depends_on:
+    - group: Platform Support & Incidents
+      activity: Handle L0 incidents
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      Product Owner:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - A
+  - name: Coordinate cross-team incident response
+    depends_on:
+    - group: Platform Support & Incidents
+      activity: Triage platform L1 support/incidents requests
+    - group: Release & Deployment
+      activity: Rollback decision
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - C
+  - name: Post-incident review facilitation
+    depends_on:
+    - group: Platform Support & Incidents
+      activity: Coordinate cross-team incident response
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+      PRE:
+      - C
+  - name: Track incident action items
+    depends_on:
+    - group: Platform Support & Incidents
+      activity: Post-incident review facilitation
+    assignments:
+      Delivery Manager:
+      - R
+      - A
+      Team lead:
+      - C
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - I
+      PRE:
+      - C
+  description: Run and improve live services after release, closing the feedback loop.

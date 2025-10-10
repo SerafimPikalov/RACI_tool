@@ -1,0 +1,1385 @@
+Date: Fri, 10 Oct 2025 10:09:22 +0000 (UTC)
+Message-ID: <475052519.19.1760090962959@18cf4d2635c9>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_18_1482153174.1760090962959"
+
+------=_Part_18_1482153174.1760090962959
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>=F0=9F=9B=A0 Draft: DM role and responsibilities in new Platform=
+ structure</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>=F0=9F=9B=A0 Draft: DM role and responsibilities in new Platform st=
+ructure</h1>
+    <div class=3D"Section1">
+        <h1 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatfo=
+rmstructure-KeyFocusAreas"><strong><span class=3D"inline-comment-marker" da=
+ta-ref=3D"bc484d9e-ee82-44fd-bf78-0e7665feedd7">Key Focus Areas</span></str=
+ong></h1>
+<ul>
+<li>
+<p><strong>Delivery excellence</strong></p>
+<ul>
+<li>
+<p>implement optimized and transparent platform teams delivery processes wi=
+th delivery metrics. Processes should be implemented in collaboration with =
+Team Leads. In the following key areas, but not limited only to them:</p>
+<ul>
+<li>
+<p>SDLC: Discovery and Delivery stages</p></li>
+<li>
+<p>Platform support/incident requests</p></li>
+<li>
+<p>Release and deployment processes</p></li>
+</ul></li>
+<li>
+<p>organize Jira and Confluence to enable transparent and optimized deliver=
+y process. Should be implemented in collaboration with Team Leads.</p></li>
+</ul></li>
+<li>
+<p><strong>Production risk management</strong> - through security and quali=
+ty levels enforcement</p></li>
+<li>
+<p><strong><span class=3D"inline-comment-marker" data-ref=3D"bfcdd8f2-6d76-=
+4563-8e74-6e68b25f5a49">Team autonomy balance</span></strong><span class=3D=
+"inline-comment-marker" data-ref=3D"bfcdd8f2-6d76-4563-8e74-6e68b25f5a49"> =
+- support Team Leads in all team activities without undermining their autho=
+rity</span></p></li>
+</ul>
+<div id=3D"expander-308358800" class=3D"expand-container">
+<div id=3D"expander-control-308358800" class=3D"expand-control">
+<span class=3D"expand-control-icon"><img style=3D"vertical-align:middle;" c=
+lass=3D"expand-control-image" src=3D"f536d1a982cffbc418c8427ed1d73c7a46e8e4=
+36ff8aee0fc675994ad88bc08b" width=3D"16" height=3D"16"></span><span class=
+=3D"expand-control-text">Examples from team leads custdev</span>
+</div>
+<div id=3D"expander-content-308358800" class=3D"expand-content">
+<ol start=3D"1">
+<li>
+<p>Define new teams structure via describing mission and RACI matrix of eac=
+h role</p></li>
+<li>
+<p>Design and implement support and tech debt management process</p></li>
+</ol>
+</div>
+</div>
+<h1 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatformstruct=
+ure-Companygoals">Company goals</h1>
+<ul>
+<li>
+<p><span class=3D"inline-comment-marker" data-ref=3D"3137ce6a-04c8-4752-adb=
+d-583386cdcb91">Assistance in setting bottom-up goals and align team effort=
+s to goals set by the top management</span></p></li>
+<li>
+<p><span class=3D"inline-comment-marker" data-ref=3D"35382cd5-4e70-42bd-b72=
+3-47d5fe872dd0">Setting and maintaining structured goal-setting framework</=
+span></p></li>
+<li>
+<p>Assistance in setting and maintaining <span class=3D"inline-comment-mark=
+er" data-ref=3D"1e4cd7b8-b117-40d3-b7cb-b1da6c02a340">performance review fr=
+amework for engineering teams</span>. Framework should be created in collab=
+oration with Team Leads.</p></li>
+</ul>
+<div id=3D"expander-1061756385" class=3D"expand-container">
+<div id=3D"expander-control-1061756385" class=3D"expand-control">
+<span class=3D"expand-control-icon"><img style=3D"vertical-align:middle;" c=
+lass=3D"expand-control-image" src=3D"f536d1a982cffbc418c8427ed1d73c7a46e8e4=
+36ff8aee0fc675994ad88bc08b" width=3D"16" height=3D"16"></span><span class=
+=3D"expand-control-text">Examples from team leads custdev</span>
+</div>
+<div id=3D"expander-content-1061756385" class=3D"expand-content">
+<ol start=3D"1">
+<li>
+<p>Map team priorities to company level directions and vice-versa</p></li>
+<li>
+<p>Design and implement performance management framework for platform engin=
+eers and team leads. It should be done in collaboration with team leads and=
+ BPHR</p></li>
+</ol>
+</div>
+</div>
+<h1 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatformstruct=
+ure-Teamdelivery">Team delivery</h1>
+<h2 style=3D"margin-left: 30.0px;" id=3D"id-=F0=9F=9B=A0Draft:DMroleandresp=
+onsibilitiesinnewPlatformstructure-DiscoveryStage"><strong>Discovery Stage<=
+/strong></h2>
+<ul>
+<li>
+<p><strong>Facilitate requirements gathering sessions</strong> between Cust=
+omer, Product Manager, Team lead, and Tech leads</p></li>
+<li>
+<p><strong>Manage discovery timeline and milestones</strong> to prevent sco=
+pe creep and infinite analysis</p></li>
+<li>
+<p><strong><span class=3D"inline-comment-marker" data-ref=3D"93829c03-3f36-=
+4458-93e3-e0bf1d38de3c">Track and manage dependencies and technical constra=
+ints</span></strong> surfaced by engineering teams</p></li>
+<li>
+<p><strong>Coordinate cross-team alignment</strong> when features impact mu=
+ltiple trading activities and zones</p></li>
+<li>
+<p><strong>Document and validate</strong> that requirements are implementat=
+ion-ready</p></li>
+<li>
+<p><strong><span class=3D"inline-comment-marker" data-ref=3D"feeefb1c-49c9-=
+40a7-b3dd-09a41059c363">Risk identification</span></strong> - control and f=
+lag unclear requirements, regulatory concerns, or technical debt blockers, =
+low-latency system awareness</p></li>
+</ul>
+<div id=3D"expander-1226278880" class=3D"expand-container">
+<div id=3D"expander-control-1226278880" class=3D"expand-control">
+<span class=3D"expand-control-icon"><img style=3D"vertical-align:middle;" c=
+lass=3D"expand-control-image" src=3D"f536d1a982cffbc418c8427ed1d73c7a46e8e4=
+36ff8aee0fc675994ad88bc08b" width=3D"16" height=3D"16"></span><span class=
+=3D"expand-control-text">Examples from team leads custdev</span>
+</div>
+<div id=3D"expander-content-1226278880" class=3D"expand-content">
+<ol start=3D"1">
+<li>
+<p>Formalize Discovery stage processes</p>
+<ol start=3D"1">
+<li>
+<p>Define Jira item for this stage</p></li>
+<li>
+<p>Define how to manage platform roadmap</p></li>
+<li>
+<p>Define key process stakeholders</p></li>
+<li>
+<p>Define and describe key discovery stage metrics</p></li>
+</ol></li>
+</ol>
+</div>
+</div>
+<h2 style=3D"margin-left: 30.0px;" id=3D"id-=F0=9F=9B=A0Draft:DMroleandresp=
+onsibilitiesinnewPlatformstructure-DeliveryStage"><strong>Delivery Stage</s=
+trong></h2>
+<ul>
+<li>
+<p><strong><span class=3D"inline-comment-marker" data-ref=3D"688925c0-7ef3-=
+4e73-9121-7c8e425ddc4e">Sprint/iteration planning</span></strong> - control=
+ that work is properly sized and prioritized</p></li>
+<li>
+<p><strong>Coordinate releases</strong> across teams and platform configura=
+tions, including release scope, schedule and PRE collaboration</p></li>
+<li>
+<p><strong>Monitor progress</strong> - design and implement key delivery KP=
+I. Monitor them with a team</p></li>
+<li>
+<p><strong>Manage stakeholder communication</strong> - sync Product Manager=
+ on delivery status, risks, delays</p></li>
+<li>
+<p><strong>Facilitate ceremonies</strong> - stand-ups, retrospectives, demo=
+s, etc (only when Team Lead needs support)</p></li>
+<li>
+<p><strong>Cross-team coordination</strong> - orchestrate when multiple tea=
+ms must deliver synchronized features</p></li>
+<li>
+<p><strong>Quality gates enforcement</strong> - ensure testing standards me=
+t before production deployment</p></li>
+<li>
+<p><strong>Post-release monitoring</strong> - coordinate support/incident r=
+esponse via building effective processes</p></li>
+<li>
+<p><strong>Continuous improvement</strong> - drive team delivery and overal=
+l processes optimizations based on delivery metrics</p></li>
+</ul>
+<div id=3D"expander-1353931198" class=3D"expand-container">
+<div id=3D"expander-control-1353931198" class=3D"expand-control">
+<span class=3D"expand-control-icon"><img style=3D"vertical-align:middle;" c=
+lass=3D"expand-control-image" src=3D"f536d1a982cffbc418c8427ed1d73c7a46e8e4=
+36ff8aee0fc675994ad88bc08b" width=3D"16" height=3D"16"></span><span class=
+=3D"expand-control-text">Examples from team leads custdev</span>
+</div>
+<div id=3D"expander-content-1353931198" class=3D"expand-content">
+<ol start=3D"1">
+<li>
+<p>Formalize Delivery stage processes</p>
+<ol start=3D"1">
+<li>
+<p>Define Jira setup for cross-platform teams: issue types used, workflows,=
+ labels, fields, teams, etc</p></li>
+<li>
+<p>Define key process milestones and stakeholders</p></li>
+<li>
+<p>Describe and improve release process, PRE collaboration on deployments</=
+p></li>
+<li>
+<p>Define and describe key delivery metrics</p></li>
+<li>
+<p>Define and describe key sprint ceremonies, and cross-team ceremonies</p>=
+</li>
+</ol></li>
+</ol>
+</div>
+</div>
+<h1 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatformstruct=
+ure-RACImatrix">RACI matrix</h1>
+<ul>
+<li>
+<p><strong>R</strong> =3D Responsible (does the work)</p></li>
+<li>
+<p><strong>A</strong> =3D Accountable (single decision maker)</p></li>
+<li>
+<p><strong>C</strong> =3D Consulted (provides input)</p></li>
+<li>
+<p><strong>I</strong> =3D Informed (kept in the loop)</p></li>
+</ul>
+<h2 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatformstruct=
+ure-1.SDLC&amp;ProcessManagement">1. SDLC &amp; Process Management</h2>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"b5=
+0cd356-5b18-4366-a088-9f005d7052d1" class=3D"confluenceTable">
+<colgroup>
+<col style=3D"width: 296.0px;">
+<col style=3D"width: 118.0px;">
+<col style=3D"width: 88.0px;">
+<col style=3D"width: 88.0px;">
+<col style=3D"width: 94.0px;">
+<col style=3D"width: 63.0px;">
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p><strong>Activity</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Delivery Manager</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Team lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Product owner</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong><span class=3D"inline-comment-marker" data-ref=3D"70b974b6-34bb-=
+442b-be82-8cbff2d7d400">Senior Team Lead</span></strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong><span class=3D"inline-comment-marker" data-ref=3D"accb0b51-6cf4-=
+4db6-b509-11f88b13dc83">Tech lead</span></strong></p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Approve major process changes</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Define and maintain SDLC framework</strong> (Discovery/Delivery =
+stages)</p></td>
+<td class=3D"confluenceTd">
+<p><span class=3D"inline-comment-marker" data-ref=3D"f115b2d9-e5f9-4503-937=
+0-3c6b2547b738">R/A</span></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Establish Jira/Confluence structure</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Implement team-specific processes</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Define delivery metrics/KPIs</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Monitor and report delivery metrics</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Drive process improvement initiatives</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatformstruct=
+ure-2.DiscoveryStage">2. Discovery Stage</h2>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"1e=
+8ae666-9368-4e5e-8f37-2ac9f675a8d5" class=3D"confluenceTable">
+<colgroup>
+<col style=3D"width: 235.0px;">
+<col style=3D"width: 90.0px;">
+<col style=3D"width: 71.0px;">
+<col style=3D"width: 87.0px;">
+<col style=3D"width: 88.0px;">
+<col style=3D"width: 66.0px;">
+<col style=3D"width: 114.0px;">
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p><strong>Activity</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Delivery Manager</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Team lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Product owner</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Senior Team Lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Tech lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Customer</strong></p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Define discovery framework</strong><br>
+(templates, exit criteria)</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Run simple feature discovery sessions</strong></p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>R</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Run complex/cross-team discovery</strong></p></td>
+<td class=3D"confluenceTd">
+<p><span class=3D"inline-comment-marker" data-ref=3D"bee9b437-83f7-42d2-afd=
+8-3fd1a0547547">R</span></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Validate requirements are implementation-ready</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R</p></td>
+<td class=3D"confluenceTd">
+<p>A</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Manage discovery timeline/prevent scope creep</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Identify technical risks/constraints</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatformstruct=
+ure-3.DeliveryStage-Planning&amp;Execution">3. Delivery Stage - Planning &a=
+mp; Execution</h2>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"8c=
+811303-d060-4ae4-ac44-8092bc423892" class=3D"confluenceTable">
+<colgroup>
+<col style=3D"width: 286.0px;">
+<col style=3D"width: 113.0px;">
+<col style=3D"width: 83.0px;">
+<col style=3D"width: 96.0px;">
+<col style=3D"width: 102.0px;">
+<col style=3D"width: 80.0px;">
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p><strong>Activity</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Delivery Manager</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Team lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Product owner</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Senior Team Lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Tech lead</strong></p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Sprint/iteration planning</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Backlog prioritization (team-level)</strong></p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Cross-team priority conflicts</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Story sizing and estimation</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Sprint execution</strong></p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Daily standups</strong></p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Remove blockers (team-level)</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Remove blockers (cross-team/infrastructure/PRE)</strong></p></td=
+>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Facilitate team retrospectives</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Facilitate sprint reviews</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Facilitate feature retrospectives</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatformstruct=
+ure-4.Release&amp;Deployment">4. Release &amp; Deployment</h2>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"f2=
+a14ab9-504c-45a8-830e-c712aeefea09" class=3D"confluenceTable">
+<colgroup>
+<col style=3D"width: 236.0px;">
+<col style=3D"width: 105.0px;">
+<col style=3D"width: 96.0px;">
+<col style=3D"width: 94.0px;">
+<col style=3D"width: 76.0px;">
+<col style=3D"width: 80.0px;">
+<col style=3D"width: 68.0px;">
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p><strong>Activity</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Delivery Manager</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Team lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Product owner</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Senior Team Lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Tech lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>PRE</strong></p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Define release process framework</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Plan cross-team release coordination</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Approve release scope</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong><span class=3D"inline-comment-marker" data-ref=3D"67f6cea4-c772-=
+41eb-9efa-50f962166b90">Quality gates enforcement</span></strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Execute deployment</strong></p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Production monitoring (immediate post-release)</strong></p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Rollback decision</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Release communication to stakeholders</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatformstruct=
+ure-5.PlatformSupport&amp;Incidents">5. Platform Support &amp; Incidents</h=
+2>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"46=
+4161bc-a5ac-437d-b9b3-1536935cc622" class=3D"confluenceTable">
+<colgroup>
+<col style=3D"width: 236.0px;">
+<col style=3D"width: 105.0px;">
+<col style=3D"width: 96.0px;">
+<col style=3D"width: 94.0px;">
+<col style=3D"width: 76.0px;">
+<col style=3D"width: 80.0px;">
+<col style=3D"width: 68.0px;">
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p><strong>Activity</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Delivery Manager</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Team lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Product owner</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Senior Team Lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Tech lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>PRE</strong></p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Define support process framework</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Handle L0 incidents</strong></p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Triage platform L1 support/incidents requests</strong></p></td>
+<td class=3D"confluenceTd">
+<p>=D0=A1</p></td>
+<td class=3D"confluenceTd">
+<p>R</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>A</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Coordinate cross-team incident response</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Post-incident review facilitation</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Track incident action items</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatformstruct=
+ure-6.Goals&amp;Performance">6. Goals &amp; Performance</h2>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"35=
+96e1dc-b7fb-4ce8-870a-53dcc16efb95" class=3D"confluenceTable">
+<colgroup>
+<col style=3D"width: 355.0px;">
+<col style=3D"width: 154.0px;">
+<col style=3D"width: 141.0px;">
+<col style=3D"width: 110.0px;">
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p><strong>Activity</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Delivery Manager</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Team lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Senior Team Lead</strong></p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Define goal-setting framework</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Set team-level goals</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Track goal progress</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Align team goals to company objectives</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Define performance review framework</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>A</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Conduct individual performance reviews</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>R/A</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id=3D"id-=F0=9F=9B=A0Draft:DMroleandresponsibilitiesinnewPlatformstruct=
+ure-7.Quality&amp;RiskManagement">7. Quality &amp; Risk Management</h2>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"ed=
+1c4a69-6cda-4dc5-998b-6af97d8f59bc" class=3D"confluenceTable">
+<colgroup>
+<col style=3D"width: 259.0px;">
+<col style=3D"width: 97.0px;">
+<col style=3D"width: 99.0px;">
+<col style=3D"width: 93.0px;">
+<col style=3D"width: 88.0px;">
+<col style=3D"width: 113.0px;">
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p><strong>Activity</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Delivery Manager</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Team lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Tech lead</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Product Owner</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Senior Team Lead</strong></p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Define quality standards</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>A</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Enforce quality gates</strong></p></td>
+<td class=3D"confluenceTd">
+<p>R/A(C)</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>C(R/A)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Code review standards</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p><span style=3D"background-color: rgb(254,222,200);">C</span></p></td>
+<td class=3D"confluenceTd">
+<p><span style=3D"background-color: rgb(254,222,200);">R/A</span></p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Technical debt prioritization</strong></p></td>
+<td class=3D"confluenceTd">
+<p>C</p></td>
+<td class=3D"confluenceTd">
+<p><span style=3D"background-color: rgb(254,222,200);">C</span></p></td>
+<td class=3D"confluenceTd">
+<p><span style=3D"background-color: rgb(254,222,200);">R/A</span></p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+<td class=3D"confluenceTd">
+<p>I</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+    </div>
+</body>
+</html>
+------=_Part_18_1482153174.1760090962959
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/f536d1a982cffbc418c8427ed1d73c7a46e8e436ff8aee0fc675994ad88bc08b
+
+iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAFVBMVEX/
+//9wcHBwcHBwcHBwcHBwcHBwcHA3RenHAAAAB3RSTlMAZoiZzN3/SzZomQAAAAlwSFlzAAALEgAA
+CxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAUdEVYdENy
+ZWF0aW9uIFRpbWUANi8xLzEzOKlF0AAAACFJREFUCJljYCATsCgwqIAZTMnMyRAhsTABCIMxkVxT
+GQCLcwHyUKXpLgAAAABJRU5ErkJggg==
+------=_Part_18_1482153174.1760090962959--

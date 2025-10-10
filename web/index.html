@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RACI Explorer Prototype</title>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12"></script>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 2rem;
+        background: #f9fafb;
+        color: #1f2937;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      .summary {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      .summary-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1rem 1.5rem;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+        min-width: 180px;
+      }
+      #status-banner {
+        margin-bottom: 1rem;
+        color: #475569;
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+      .controls label {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.85rem;
+        color: #334155;
+        gap: 0.25rem;
+      }
+      .controls select {
+        min-width: 180px;
+        padding: 0.35rem 0.5rem;
+        border: 1px solid #cbd5f5;
+        border-radius: 6px;
+        background: #fff;
+        font-size: 0.95rem;
+        color: #1f2937;
+      }
+      #warnings {
+        margin-bottom: 2.5rem;
+      }
+      #warnings-list {
+        padding-left: 1.2rem;
+      }
+      .sankey-section {
+        max-width: 1100px;
+      }
+      .legend {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: #334155;
+      }
+      .legend-swatch {
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+      }
+      #sankey-placeholder {
+        position: relative;
+        width: 100%;
+        min-height: 460px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        padding: 1rem;
+        overflow: hidden;
+      }
+      .dependency-section {
+        margin-top: 3rem;
+        max-width: 1300px;
+      }
+      #dependency-graph {
+        position: relative;
+        width: 100%;
+        min-height: 520px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        padding: 1rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+      .graph-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+        color: #334155;
+      }
+      .activity-node rect {
+        stroke: rgba(15, 23, 42, 0.12);
+        stroke-width: 1;
+      }
+      .activity-node.highlight rect {
+        stroke: #2563eb;
+        stroke-width: 2;
+      }
+      .activity-node.dimmed rect {
+        opacity: 0.35;
+      }
+      .dependency-edge {
+        fill: none;
+        opacity: 0.75;
+      }
+      .dependency-edge.dimmed {
+        opacity: 0.25;
+      }
+      .dependency-headers text.highlight {
+        fill: #1d4ed8;
+      }
+      svg text {
+        font-size: 12px;
+        fill: #1f2937;
+      }
+      .node rect {
+        stroke: rgba(15, 23, 42, 0.1);
+        stroke-width: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>RACI Explorer Prototype</h1>
+    <p id="status-banner">Loading data…</p>
+    <section class="summary" id="summary"></section>
+    <section id="warnings">
+      <h2>Action Warnings</h2>
+      <ul id="warnings-list"></ul>
+    </section>
+    <section class="controls">
+      <label>
+        Role filter
+        <select id="role-filter"></select>
+      </label>
+      <label>
+        RACI filter
+        <select id="raci-filter">
+          <option value="all" selected>All letters</option>
+          <option value="R">Responsible (R)</option>
+          <option value="A">Accountable (A)</option>
+          <option value="C">Consulted (C)</option>
+          <option value="I">Informed (I)</option>
+        </select>
+      </label>
+      <label>
+        Connection type
+        <select id="dependency-type-filter">
+          <option value="all" selected>All types</option>
+        </select>
+      </label>
+    </section>
+    <section class="sankey-section">
+      <h2>Lifecycle Sankey</h2>
+      <div id="sankey-legend" class="legend"></div>
+      <div id="sankey-placeholder"></div>
+    </section>
+    <section class="dependency-section">
+      <h2>Activity Dependency Graph</h2>
+      <div id="dependency-legend" class="graph-legend"></div>
+      <div id="dependency-graph"></div>
+    </section>
+
+    <script>
+      const STATUS_COLORS = { R: "#f97316", A: "#ef4444", C: "#3b82f6", I: "#16a34a" };
+      const NODE_COLORS = { action: "#8b5cf6", role: "#0ea5e9" };
+
+      let cachedData = null;
+      let resizeTimeout = null;
+      let actionAssignments = new Map();
+      let dependencyTypes = [];
+      let dependencyColorScale = null;
+      const filters = { role: "all", raci: "all", dependencyType: "all" };
+
+      async function init() {
+        const statusEl = document.getElementById("status-banner");
+        statusEl.textContent = "Loading data…";
+        try {
+          const response = await fetch("../build/raci_enriched.json");
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          cachedData = data;
+          actionAssignments = buildActionAssignments(data.relationships);
+          dependencyTypes = Array.from(new Set((data.activity_dependencies || []).map((d) => d.type))).sort();
+          dependencyColorScale = d3
+            .scaleOrdinal(dependencyTypes.length ? dependencyTypes : ["depends_on"], d3.schemeTableau10);
+          renderSummary(data);
+          renderWarnings(data.metrics.action_warnings || []);
+          populateRoleFilter(data.roles);
+          populateDependencyTypeFilter();
+          renderLegend();
+          renderDependencyLegend();
+          renderSankey(data);
+          renderDependencyGraph(data);
+          statusEl.textContent = `Loaded ${data.activity_groups.length} lifecycle groups • ${data.actions.length} actions`;
+        } catch (error) {
+          cachedData = null;
+          document.getElementById("sankey-placeholder").textContent = "Unable to display Sankey.";
+          document.getElementById("dependency-graph").textContent = "Unable to display dependency graph.";
+          statusEl.textContent = "Failed to load data.";
+          console.error("Failed to load raci_enriched.json", error);
+        }
+      }
+
+      function buildActionAssignments(relationships) {
+        const map = new Map();
+        for (const rel of relationships) {
+          if (!map.has(rel.action_id)) {
+            map.set(rel.action_id, new Map());
+          }
+          const roleMap = map.get(rel.action_id);
+          if (!roleMap.has(rel.role_id)) {
+            roleMap.set(rel.role_id, new Set());
+          }
+          roleMap.get(rel.role_id).add(rel.raci);
+        }
+        return map;
+      }
+
+      function renderSummary(data) {
+        const container = d3.select("#summary");
+        container.selectAll("*").remove();
+
+        const roles = data.metrics.role_summary || [];
+        const totalEdges = data.relationships.length;
+        const cards = [
+          { label: "Lifecycle groups", value: data.activity_groups.length },
+          { label: "Actions", value: data.actions.length },
+          { label: "Relationships", value: totalEdges },
+        ];
+
+        const topRoles = roles.slice(0, 3).map((role) => ({
+          label: role.role_name,
+          value: `${role.counts.R + role.counts.A} R/A`,
+        }));
+
+        cards.push(...topRoles);
+
+        const cardSelection = container
+          .selectAll(".summary-card")
+          .data(cards)
+          .enter()
+          .append("article")
+          .attr("class", "summary-card");
+
+        cardSelection.append("h3").text((d) => d.label);
+        cardSelection.append("p").text((d) => d.value);
+      }
+
+      function renderWarnings(warnings) {
+        const list = d3.select("#warnings-list");
+        list.selectAll("*").remove();
+
+        if (!warnings.length) {
+          list.append("li").text("No current warnings.");
+          return;
+        }
+
+        list
+          .selectAll("li")
+          .data(warnings)
+          .enter()
+          .append("li")
+          .text((d) => `${d.action_name}: ${d.issue}`);
+      }
+
+      function renderLegend() {
+        const legend = d3.select("#sankey-legend");
+        legend.selectAll("*").remove();
+
+        const items = Object.entries(STATUS_COLORS);
+        const entry = legend
+          .selectAll(".legend-item")
+          .data(items)
+          .enter()
+          .append("div")
+          .attr("class", "legend-item");
+
+        entry
+          .append("span")
+          .attr("class", "legend-swatch")
+          .style("background", ([, color]) => color);
+
+        entry.append("span").text(([letter]) => letter);
+      }
+
+      function populateRoleFilter(roles) {
+        const select = document.getElementById("role-filter");
+        select.innerHTML = "";
+
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "all";
+        defaultOption.textContent = "All roles";
+        select.appendChild(defaultOption);
+
+        roles
+          .slice()
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .forEach((role) => {
+            const option = document.createElement("option");
+            option.value = role.id;
+            option.textContent = role.name;
+            select.appendChild(option);
+          });
+
+        select.value = filters.role;
+
+        select.addEventListener("change", (event) => {
+          filters.role = event.target.value || "all";
+          if (cachedData) {
+            renderSankey(cachedData);
+            renderDependencyGraph(cachedData);
+          }
+        });
+
+        const raciSelect = document.getElementById("raci-filter");
+        raciSelect.value = filters.raci;
+        raciSelect.addEventListener("change", (event) => {
+          filters.raci = event.target.value || "all";
+          if (cachedData) {
+            renderSankey(cachedData);
+            renderDependencyGraph(cachedData);
+          }
+        });
+      }
+
+      function populateDependencyTypeFilter() {
+        const select = document.getElementById("dependency-type-filter");
+        select.innerHTML = "";
+
+        const addOption = (value, label) => {
+          const option = document.createElement("option");
+          option.value = value;
+          option.textContent = label;
+          select.appendChild(option);
+        };
+
+        addOption("all", "All types");
+        const types = dependencyTypes.length ? dependencyTypes : ["depends_on"];
+        types.forEach((type) => addOption(type, type.replace(/_/g, " ")));
+
+        select.value = filters.dependencyType;
+        select.addEventListener("change", (event) => {
+          filters.dependencyType = event.target.value || "all";
+          if (cachedData) {
+            renderDependencyGraph(cachedData);
+          }
+        });
+      }
+
+      function renderDependencyLegend() {
+        const legend = d3.select("#dependency-legend");
+        legend.selectAll("*").remove();
+
+        const types = dependencyTypes.length ? dependencyTypes : ["depends_on"];
+        const entry = legend.selectAll("span").data(types).enter().append("span");
+
+        entry
+          .append("span")
+          .style("display", "inline-block")
+          .style("width", "14px")
+          .style("height", "14px")
+          .style("border-radius", "3px")
+          .style("background", (d) => dependencyColorScale(d))
+          .style("margin-right", "0.35rem");
+
+        entry.append("span").text((d) => d.replace(/_/g, " "));
+      }
+
+      function renderSankey(data) {
+        const container = d3.select("#sankey-placeholder");
+        container.selectAll("*").remove();
+
+        if (!data.relationships.length || !data.actions.length) {
+          container.append("p").text("No relationships to display.");
+          return;
+        }
+
+        const groupOrder = new Map(data.activity_groups.map((group, index) => [group.id, index]));
+
+        const links = aggregateLinks(data);
+        const filteredLinks = links.filter((link) => {
+          const roleMatch = filters.role === "all" || link.role_id === filters.role;
+          const raciMatch = filters.raci === "all" || link.raci === filters.raci;
+          return roleMatch && raciMatch;
+        });
+
+        if (!filteredLinks.length) {
+          container.append("p").text("No relationships match the current filters.");
+          return;
+        }
+
+        const activeActionIds = new Set(filteredLinks.map((link) => link.action_id));
+        const activeRoleIds = new Set(filteredLinks.map((link) => link.role_id));
+
+        const actions = data.actions
+          .filter((action) => activeActionIds.has(action.id))
+          .sort((a, b) => {
+            const groupComparison = groupOrder.get(a.group_id) - groupOrder.get(b.group_id);
+            if (groupComparison !== 0) return groupComparison;
+            return a.name.localeCompare(b.name);
+          });
+
+        const roles = data.roles
+          .filter((role) => activeRoleIds.has(role.id))
+          .sort((a, b) => a.name.localeCompare(b.name));
+
+        const actionLookup = new Map(actions.map((action) => [action.id, action]));
+        const groupLookup = new Map(data.activity_groups.map((group) => [group.id, group.title]));
+        const roleLookup = new Map(roles.map((role) => [role.id, role.name]));
+
+        const nodes = [
+          ...actions.map((action) => ({
+            id: `action:${action.id}`,
+            name: action.name,
+            type: "action",
+            group_id: action.group_id,
+          })),
+          ...roles.map((role) => ({
+            id: `role:${role.id}`,
+            name: role.name,
+            type: "role",
+          })),
+        ];
+
+        const linksForGraph = filteredLinks.map((link) => ({
+          ...link,
+          source: `action:${link.action_id}`,
+          target: `role:${link.role_id}`,
+        }));
+
+        const targetHeight = Math.max(440, actions.length * 24);
+        container.style("min-height", `${targetHeight + 32}px`);
+        container.style("height", `${targetHeight + 32}px`);
+
+        const bbox = container.node().getBoundingClientRect();
+        const width = Math.max(640, bbox.width || container.node().clientWidth || 640);
+        const height = targetHeight;
+        const margin = { top: 28, right: 60, bottom: 24, left: 220 };
+
+        const svg = container.append("svg").attr("width", width).attr("height", height);
+
+        const sankeyGenerator = d3
+          .sankey()
+          .nodeId((d) => d.id)
+          .nodeAlign(d3.sankeyLeft)
+          .nodeWidth(16)
+          .nodePadding(20)
+          .nodeSort((a, b) => {
+            if (a.type !== b.type) {
+              return a.type === "action" ? -1 : 1;
+            }
+            if (a.type === "action" && b.type === "action") {
+              const groupComparison = groupOrder.get(a.group_id) - groupOrder.get(b.group_id);
+              if (groupComparison !== 0) return groupComparison;
+              return a.name.localeCompare(b.name);
+            }
+            if (a.type === "role" && b.type === "role") {
+              return a.name.localeCompare(b.name);
+            }
+            return 0;
+          })
+          .extent([
+            [margin.left, margin.top],
+            [width - margin.right, height - margin.bottom],
+          ]);
+
+        const graph = sankeyGenerator({
+          nodes: nodes.map((node) => ({ ...node })),
+          links: linksForGraph.map((link) => ({ ...link })),
+        });
+
+        const actionNodes = graph.nodes.filter((node) => node.type === "action");
+        if (!actionNodes.length) {
+          container.append("p").text("No action nodes available.");
+          return;
+        }
+
+        const actionColumnX0 = d3.min(actionNodes, (node) => node.x0);
+        const actionColumnX1 = d3.max(actionNodes, (node) => node.x1);
+        const bandPaddingX = 16;
+        const bandBaseX = margin.left;
+        const bandWidth = Math.min(
+          Math.max(220, actionColumnX1 - actionColumnX0 + bandPaddingX * 2),
+          width - margin.right - bandBaseX - 8
+        );
+
+        const groupColor = d3.scaleOrdinal(data.activity_groups.map((group) => group.id), d3.schemeTableau10);
+
+        const groupBands = data.activity_groups
+          .map((group) => {
+            const groupNodes = actionNodes.filter((node) => node.group_id === group.id);
+            if (!groupNodes.length) return null;
+            return {
+              id: group.id,
+              title: group.title,
+              y0: d3.min(groupNodes, (node) => node.y0),
+              y1: d3.max(groupNodes, (node) => node.y1),
+            };
+          })
+          .filter(Boolean);
+
+        const bandGroup = svg.append("g").attr("class", "group-bands");
+
+        const bandG = bandGroup
+          .selectAll("g")
+          .data(groupBands)
+          .enter()
+          .append("g")
+          .attr("transform", (d) => `translate(${bandBaseX}, ${Math.max(margin.top - 14, d.y0 - 16)})`);
+
+        bandG
+          .append("rect")
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr("width", bandWidth)
+          .attr("height", (d) => Math.max(34, d.y1 - d.y0 + 28))
+          .attr("fill", (d) => {
+            const base = d3.color(groupColor(d.id));
+            base.opacity = 0.08;
+            return base;
+          })
+          .attr("stroke", (d) => groupColor(d.id))
+          .attr("stroke-dasharray", "6 6")
+          .attr("stroke-opacity", 0.35);
+
+        bandG
+          .append("text")
+          .attr("x", -12)
+          .attr("y", (d) => (Math.max(34, d.y1 - d.y0 + 28) / 2))
+          .attr("dy", "0.35em")
+          .attr("text-anchor", "end")
+          .attr("font-weight", 700)
+          .attr("fill", "#1f2937")
+          .text((d) => d.title);
+
+        const linkGroup = svg.append("g").attr("fill", "none").attr("stroke-opacity", 0.55);
+
+        const link = linkGroup
+          .selectAll("path")
+          .data(graph.links)
+          .enter()
+          .append("path")
+          .attr("d", d3.sankeyLinkHorizontal())
+          .attr("stroke", (d) => STATUS_COLORS[d.raci] || "#94a3b8")
+          .attr("stroke-width", (d) => Math.max(1, d.width))
+          .attr("opacity", 0.85);
+
+        link.append("title").text((d) => {
+          const action = actionLookup.get(d.action_id);
+          const actionName = action ? action.name : "Unknown action";
+          const groupTitle = action ? groupLookup.get(action.group_id) : "Unknown group";
+          const roleName = roleLookup.get(d.role_id) || "Unknown role";
+          const countLabel = `• ${d.value} assignment${d.value === 1 ? "" : "s"}`;
+          return `${groupTitle} → ${actionName} → ${roleName} (${d.raci}) ${countLabel}`;
+        });
+
+        const node = svg.append("g").selectAll(".node").data(graph.nodes).enter().append("g").attr("class", "node");
+
+        node
+          .append("rect")
+          .attr("x", (d) => d.x0)
+          .attr("y", (d) => d.y0)
+          .attr("height", (d) => Math.max(2, d.y1 - d.y0))
+          .attr("width", (d) => Math.max(1, d.x1 - d.x0))
+          .attr("rx", 2)
+          .attr("ry", 2)
+          .attr("fill", (d) => NODE_COLORS[d.type] || "#64748b")
+          .attr("fill-opacity", 0.9);
+
+        node
+          .append("text")
+          .attr("x", (d) => (d.x0 < width / 2 ? d.x1 + 8 : d.x0 - 8))
+          .attr("y", (d) => Math.max(12, (d.y0 + d.y1) / 2))
+          .attr("dy", "0.35em")
+          .attr("text-anchor", (d) => (d.x0 < width / 2 ? "start" : "end"))
+          .text((d) => `${d.name} (${Math.round(d.value)})`);
+      }
+
+      function aggregateLinks(data) {
+        const actionLookup = new Map(data.actions.map((action) => [action.id, action]));
+        const linkMap = new Map();
+
+        for (const rel of data.relationships) {
+          const action = actionLookup.get(rel.action_id);
+          if (!action) continue;
+          const key = `${rel.action_id}|${rel.role_id}|${rel.raci}`;
+          if (!linkMap.has(key)) {
+            linkMap.set(key, {
+              action_id: rel.action_id,
+              role_id: rel.role_id,
+              group_id: action.group_id,
+              raci: rel.raci,
+              value: 0,
+            });
+          }
+          linkMap.get(key).value += 1;
+        }
+        return Array.from(linkMap.values());
+      }
+
+      function actionMatchesFilters(actionId) {
+        const roleFilter = filters.role;
+        const raciFilter = filters.raci;
+        if (roleFilter === "all" && raciFilter === "all") {
+          return true;
+        }
+
+        const assignments = actionAssignments.get(actionId);
+        if (!assignments) return false;
+
+        if (roleFilter !== "all") {
+          const letters = assignments.get(roleFilter);
+          if (!letters) return false;
+          if (raciFilter === "all") return true;
+          return letters.has(raciFilter);
+        }
+
+        if (raciFilter === "all") {
+          return true;
+        }
+
+        for (const letters of assignments.values()) {
+          if (letters.has(raciFilter)) return true;
+        }
+        return false;
+      }
+
+      function renderDependencyGraph(data) {
+        const container = d3.select("#dependency-graph");
+        container.selectAll("*").remove();
+
+        const allEdges = data.activity_dependencies || [];
+        const typeFilteredEdges =
+          filters.dependencyType === "all"
+            ? allEdges
+            : allEdges.filter((edge) => edge.type === filters.dependencyType);
+
+        const roleLookup = new Map(data.roles.map((role) => [role.id, role.name]));
+        const matchedActions = new Set();
+        for (const action of data.actions) {
+          if (actionMatchesFilters(action.id)) {
+            matchedActions.add(action.id);
+          }
+        }
+
+        const filterActive = filters.role !== "all" || filters.raci !== "all";
+        const dependencyEdges = typeFilteredEdges.filter((edge) => {
+          if (!filterActive) return true;
+          return matchedActions.has(edge.source_action_id) || matchedActions.has(edge.target_action_id);
+        });
+
+        const visibleActionIds = new Set(matchedActions);
+        dependencyEdges.forEach((edge) => {
+          visibleActionIds.add(edge.source_action_id);
+          visibleActionIds.add(edge.target_action_id);
+        });
+
+        if (visibleActionIds.size === 0) {
+          container.append("p").text("No activities match the current filters.");
+          return;
+        }
+
+        const actionOrder = new Map(data.actions.map((action, index) => [action.id, index]));
+        const nodesByGroup = data.activity_groups.map((group) => {
+          const actions = data.actions
+            .filter((action) => action.group_id === group.id && visibleActionIds.has(action.id))
+            .sort((a, b) => actionOrder.get(a.id) - actionOrder.get(b.id));
+          return { group, actions };
+        });
+
+        const maxNodes = Math.max(1, ...nodesByGroup.map((col) => col.actions.length));
+        const margin = { top: 80, right: 200, bottom: 40, left: 260 };
+        const nodeWidth = 260;
+        const nodeHeight = 42;
+        const nodeGap = 30;
+
+        const containerNode = container.node();
+        const bbox = containerNode.getBoundingClientRect();
+        const columnCount = data.activity_groups.length;
+        const baseSpacing = columnCount > 1 ? nodeWidth + 220 : 0;
+        const width = margin.left + margin.right + baseSpacing * Math.max(0, columnCount - 1);
+        const height = Math.max(
+          margin.top + margin.bottom + nodeHeight,
+          margin.top + margin.bottom + (maxNodes - 1) * (nodeHeight + nodeGap) + nodeHeight
+        );
+
+        container.style("min-height", `${height}px`);
+        container.style("height", `${height}px`);
+
+        const availableWidth = bbox.width || containerNode.clientWidth || 0;
+        if (availableWidth < width) {
+          container.style("overflow-x", "auto");
+        } else {
+          container.style("overflow-x", "hidden");
+        }
+
+        const effectiveWidth = Math.max(width, availableWidth, 1100);
+        const svg = container.append("svg").attr("width", effectiveWidth).attr("height", height);
+        const effectiveSpacing =
+          columnCount > 1
+            ? Math.max(
+                baseSpacing,
+                (effectiveWidth - margin.left - margin.right) / Math.max(1, columnCount - 1)
+              )
+            : 0;
+        const groupColor = d3.scaleOrdinal(data.activity_groups.map((group) => group.id), d3.schemePastel1);
+
+        const nodePositions = new Map();
+        const nodesData = [];
+        const groupHighlight = new Map();
+        const groupBandsData = [];
+        const bandPaddingX = 28;
+        const bandPaddingY = 16;
+        const halfWidth = nodeWidth / 2;
+        const halfHeight = nodeHeight / 2;
+
+        const anchorPoint = (center, other) => {
+          const dx = other.x - center.x;
+          const dy = other.y - center.y;
+          if (dx === 0 && dy === 0) {
+            return { x: center.x, y: center.y };
+          }
+          const scaleX = dx !== 0 ? halfWidth / Math.abs(dx) : Infinity;
+          const scaleY = dy !== 0 ? halfHeight / Math.abs(dy) : Infinity;
+          let scale = Math.min(scaleX, scaleY);
+          if (!isFinite(scale)) {
+            scale = scaleX === Infinity ? scaleY : scaleX;
+          }
+          if (!isFinite(scale) || scale === 0) {
+            return { x: center.x, y: center.y };
+          }
+          return {
+            x: center.x + dx * scale,
+            y: center.y + dy * scale,
+          };
+        };
+
+        nodesByGroup.forEach((col, colIndex) => {
+          const baseX = margin.left + colIndex * effectiveSpacing;
+          let highlightCount = 0;
+          let minY = Infinity;
+          let maxY = -Infinity;
+
+          col.actions.forEach((action, actionIndex) => {
+            const x = baseX;
+            const y = margin.top + actionIndex * (nodeHeight + nodeGap);
+            nodePositions.set(action.id, { x, y });
+            const highlight = filterActive ? matchedActions.has(action.id) : true;
+            if (highlight) highlightCount += 1;
+            minY = Math.min(minY, y);
+            maxY = Math.max(maxY, y);
+            nodesData.push({
+              action,
+              group: col.group,
+              x,
+              y,
+              highlight,
+            });
+          });
+
+          const hasNodes = col.actions.length > 0;
+          const groupIsHighlighted = hasNodes ? (filterActive ? highlightCount > 0 : true) : false;
+          groupHighlight.set(col.group.id, groupIsHighlighted);
+
+          if (hasNodes) {
+            const top = (minY === Infinity ? margin.top : minY) - nodeHeight / 2 - bandPaddingY;
+            const bottom = (maxY === -Infinity ? minY : maxY) + nodeHeight / 2 + bandPaddingY;
+            groupBandsData.push({
+              group: col.group,
+              x: baseX - nodeWidth / 2 - bandPaddingX,
+              width: nodeWidth + bandPaddingX * 2,
+              y: top,
+              height: Math.max(60, bottom - top),
+              highlight: groupIsHighlighted,
+            });
+          }
+        });
+
+        const edgesData = dependencyEdges
+          .map((edge) => {
+            const targetPos = nodePositions.get(edge.target_action_id);
+            const sourcePos = nodePositions.get(edge.source_action_id);
+            if (!targetPos || !sourcePos) return null;
+            const highlight = filterActive
+              ? matchedActions.has(edge.source_action_id) || matchedActions.has(edge.target_action_id)
+              : true;
+            return {
+              ...edge,
+              startCenter: targetPos,
+              endCenter: sourcePos,
+              start: anchorPoint(targetPos, sourcePos),
+              end: anchorPoint(sourcePos, targetPos),
+              highlight,
+            };
+          })
+          .filter(Boolean);
+
+        const markerTypes = Array.from(new Set(edgesData.map((edge) => edge.type)));
+        const defs = svg.append("defs");
+        markerTypes.forEach((type) => {
+          const color = dependencyColorScale(type);
+          defs
+            .append("marker")
+            .attr("id", `arrow-${type}`)
+            .attr("viewBox", "0 -4 8 8")
+            .attr("refX", 8)
+            .attr("refY", 0)
+            .attr("markerWidth", 8)
+            .attr("markerHeight", 8)
+            .attr("orient", "auto")
+            .attr("markerUnits", "strokeWidth")
+            .append("path")
+            .attr("d", "M0,-4L8,0L0,4")
+            .attr("fill", color);
+        });
+
+        const bandGroup = svg.append("g").attr("class", "dependency-bands");
+        bandGroup
+          .selectAll("rect")
+          .data(groupBandsData)
+          .enter()
+          .append("rect")
+          .attr("x", (d) => d.x)
+          .attr("y", (d) => d.y)
+          .attr("width", (d) => d.width)
+          .attr("height", (d) => d.height)
+          .attr("rx", 18)
+          .attr("ry", 18)
+          .attr("fill", (d) => {
+            const base = d3.color(groupColor(d.group.id));
+            if (base) {
+              base.opacity = d.highlight ? 0.22 : 0.08;
+              return base;
+            }
+            return d.highlight ? "rgba(37,99,235,0.18)" : "rgba(148,163,184,0.08)";
+          })
+          .attr("stroke", (d) => {
+            const base = d3.color(groupColor(d.group.id));
+            if (base) {
+              base.opacity = d.highlight ? 0.55 : 0.25;
+              return base;
+            }
+            return d.highlight ? "rgba(37,99,235,0.45)" : "rgba(148,163,184,0.25)";
+          })
+          .attr("stroke-dasharray", (d) => (d.highlight ? null : "8 6"));
+
+        svg
+          .append("g")
+          .attr("class", "dependency-headers")
+          .selectAll("text")
+          .data(data.activity_groups)
+          .enter()
+          .append("text")
+          .attr("x", (d, index) => margin.left + index * effectiveSpacing)
+          .attr("y", margin.top - 42)
+          .attr("text-anchor", "middle")
+          .attr("font-weight", 700)
+          .attr("fill", "#1f2937")
+          .attr("opacity", (d) => (groupHighlight.get(d.id) ? 1 : 0.45))
+          .classed("highlight", (d) => groupHighlight.get(d.id))
+          .text((d) => d.title);
+
+        if (!edgesData.length) {
+          svg
+            .append("text")
+            .attr("x", margin.left)
+            .attr("y", margin.top - 15)
+            .attr("fill", "#64748b")
+            .attr("font-size", 12)
+            .text("No dependency edges match the current filters. Showing standalone activities.");
+        }
+
+        const edgeGroup = svg.append("g").attr("class", "dependency-edges");
+        const curvedLink = (start, end) => {
+          const midX = (start.x + end.x) / 2;
+          return `M${start.x},${start.y} C${midX},${start.y} ${midX},${end.y} ${end.x},${end.y}`;
+        };
+
+        const edgeSelection = edgeGroup
+          .selectAll("path")
+          .data(edgesData)
+          .enter()
+          .append("path")
+          .attr("class", "dependency-edge")
+          .attr("d", (d) => curvedLink(d.start, d.end))
+          .attr("stroke", (d) => dependencyColorScale(d.type))
+          .attr("stroke-width", 2)
+          .attr("marker-end", (d) => `url(#arrow-${d.type})`)
+          .classed("dimmed", (d) => filterActive && !d.highlight);
+
+        edgeSelection
+          .append("title")
+          .text((d) => `${d.source_action_name} depends on ${d.target_action_name} (${d.type.replace(/_/g, " ")})`);
+
+        const nodesGroup = svg.append("g").attr("class", "dependency-nodes");
+        const nodeSelection = nodesGroup
+          .selectAll(".activity-node")
+          .data(nodesData)
+          .enter()
+          .append("g")
+          .attr("class", "activity-node")
+          .classed("highlight", (d) => d.highlight)
+          .classed("dimmed", (d) => filterActive && !d.highlight)
+          .attr("transform", (d) => `translate(${d.x - nodeWidth / 2}, ${d.y - nodeHeight / 2})`);
+
+        nodeSelection
+          .append("rect")
+          .attr("width", nodeWidth)
+          .attr("height", nodeHeight)
+          .attr("rx", 6)
+          .attr("ry", 6)
+          .attr("fill", (d) => {
+            const base = d3.color(groupColor(d.group.id));
+            const fill = base ? base.copy() : d3.color("#e2e8f0");
+            fill.opacity = d.highlight ? 0.95 : 0.5;
+            return fill;
+          });
+
+        const labels = nodeSelection
+          .append("text")
+          .attr("x", 14)
+          .attr("y", 14)
+          .attr("fill", "#1f2937")
+          .attr("font-size", 11)
+          .attr("opacity", (d) => (d.highlight ? 1 : 0.55))
+          .attr("dominant-baseline", "hanging")
+          .text((d) => d.action.name);
+
+        wrapText(labels, nodeWidth - 28, nodeHeight);
+
+        nodeSelection
+          .append("title")
+          .text((d) => {
+            const lines = [`${d.action.name}`, `Group: ${d.group.title}`];
+            const assignments = actionAssignments.get(d.action.id);
+            if (assignments) {
+              const roleLines = [];
+              assignments.forEach((letters, roleId) => {
+                const roleName = roleLookup.get(roleId) || roleId;
+                roleLines.push(`${roleName}: ${Array.from(letters).sort().join("/")}`);
+              });
+              roleLines.sort();
+              lines.push(...roleLines);
+            }
+            return lines.join("\n");
+          });
+      }
+
+      function wrapText(textSelection, width, nodeHeight) {
+        textSelection.each(function () {
+          const text = d3.select(this);
+          const words = (text.text() || "").split(/\s+/).filter(Boolean);
+          if (!words.length) {
+            return;
+          }
+          const x = text.attr("x");
+          const y = text.attr("y");
+          const lineHeight = 1.25;
+          text.text(null);
+          let line = [];
+          let lineNumber = 0;
+          let tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", "0em");
+          for (const word of words) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > width && line.length > 1) {
+              line.pop();
+              tspan.text(line.join(" "));
+              line = [word];
+              tspan = text
+                .append("tspan")
+                .attr("x", x)
+                .attr("y", y)
+                .attr("dy", `${++lineNumber * lineHeight}em`)
+                .text(word);
+            }
+          }
+          const lineCount = lineNumber + 1;
+          const linePixelHeight = lineCount * lineHeight * 11;
+          const offset = Math.max(0, (nodeHeight - linePixelHeight) / 2 - 2);
+          text.attr("y", +y + offset);
+          text.selectAll("tspan").attr("y", +y + offset);
+        });
+      }
+
+      window.addEventListener("resize", () => {
+        if (!cachedData) return;
+        if (resizeTimeout) {
+          clearTimeout(resizeTimeout);
+        }
+        resizeTimeout = setTimeout(() => {
+          renderSankey(cachedData);
+          renderDependencyGraph(cachedData);
+        }, 200);
+      });
+
+      init();
+    </script>
+  </body>
+</html>
