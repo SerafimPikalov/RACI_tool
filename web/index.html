@@ -95,27 +95,118 @@
         color: #475569;
       }
       .controls {
+        margin: 1rem 0;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      #filter-matrix h3 {
+        margin: 0 0 1rem 0;
+        color: #333;
+      }
+
+      #checkbox-grid {
+        display: grid;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .checkbox-row {
+        display: grid;
+        grid-template-columns: 120px repeat(4, 1fr);
+        gap: 0.5rem;
+        align-items: center;
+        padding: 0.5rem;
+        background: white;
+        border-radius: 4px;
+        border: 1px solid #e0e0e0;
+      }
+
+      .checkbox-row:first-child {
+        font-weight: bold;
+        background: #f0f0f0;
+      }
+
+      .header-checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .header-checkbox input[type="checkbox"] {
+        margin: 0;
+        transform: scale(1.3);
+      }
+
+      .header-checkbox label {
+        margin-left: 0.25rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+      }
+
+      .role-label {
+        font-weight: 500;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .role-checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .role-checkbox input[type="checkbox"] {
+        margin: 0;
+        transform: scale(1.2);
+      }
+
+      .raci-checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .raci-checkbox input[type="checkbox"] {
+        margin: 0;
+        transform: scale(1.2);
+      }
+
+      .raci-checkbox label {
+        margin-left: 0.25rem;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .filter-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
-        align-items: center;
-        margin-bottom: 1.5rem;
+        gap: 0.5rem;
       }
-      .controls label {
-        display: flex;
-        flex-direction: column;
-        font-size: 0.85rem;
-        color: #334155;
-        gap: 0.25rem;
+
+      .filter-actions button {
+        padding: 0.5rem 1rem;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
       }
-      .controls select {
-        min-width: 180px;
-        padding: 0.35rem 0.5rem;
-        border: 1px solid #cbd5f5;
-        border-radius: 6px;
-        background: #fff;
-        font-size: 0.95rem;
-        color: #1f2937;
+
+      .filter-actions button:hover {
+        background: #0056b3;
+      }
+
+      .filter-actions button:active {
+        background: #004085;
       }
       #warnings {
         margin-bottom: 2.5rem;
@@ -363,26 +454,14 @@
       <p class="dataset-status" id="dataset-status">Using default dataset.</p>
     </section>
     <section class="controls">
-      <label>
-        Role filter
-        <select id="role-filter"></select>
-      </label>
-      <label>
-        RACI filter
-        <select id="raci-filter">
-          <option value="all" selected>All letters</option>
-          <option value="R">Responsible (R)</option>
-          <option value="A">Accountable (A)</option>
-          <option value="C">Consulted (C)</option>
-          <option value="I">Informed (I)</option>
-        </select>
-      </label>
-      <label>
-        Connection type
-        <select id="dependency-type-filter">
-          <option value="all" selected>All types</option>
-        </select>
-      </label>
+      <div id="filter-matrix">
+        <h3>Filter Matrix</h3>
+        <div id="checkbox-grid"></div>
+        <div class="filter-actions">
+          <button type="button" id="select-all">Select All</button>
+          <button type="button" id="clear-all">Clear All</button>
+        </div>
+      </div>
     </section>
     <section class="sankey-section">
       <h2>Lifecycle Sankey</h2>
@@ -415,7 +494,7 @@
       let datasetStatusEl = null;
       let matrixEditor = null;
       let matrixEditorState = null;
-      const filters = { role: "all", raci: "all", dependencyType: "all" };
+      const filters = { roleRaci: new Map() };
 
       async function init() {
         const statusEl = document.getElementById("status-banner");
@@ -548,84 +627,236 @@
         entry.append("span").text(([letter]) => letter);
       }
 
-      function populateRoleFilter(roles) {
-        const select = document.getElementById("role-filter");
-        select.innerHTML = "";
+      function createCheckboxMatrix(roles) {
+        const container = document.getElementById("checkbox-grid");
+        container.innerHTML = "";
 
-        const defaultOption = document.createElement("option");
-        defaultOption.value = "all";
-        defaultOption.textContent = "All roles";
-        select.appendChild(defaultOption);
+        // Create header row
+        const headerRow = document.createElement("div");
+        headerRow.className = "checkbox-row";
+        
+        // Role header with "Select All Roles" checkbox
+        const roleHeaderContainer = document.createElement("div");
+        roleHeaderContainer.className = "header-checkbox";
+        
+        const roleSelectAllCheckbox = document.createElement("input");
+        roleSelectAllCheckbox.type = "checkbox";
+        roleSelectAllCheckbox.id = "select-all-roles";
+        
+        const roleSelectAllLabel = document.createElement("label");
+        roleSelectAllLabel.htmlFor = "select-all-roles";
+        roleSelectAllLabel.textContent = "Role";
+        
+        roleHeaderContainer.appendChild(roleSelectAllCheckbox);
+        roleHeaderContainer.appendChild(roleSelectAllLabel);
+        headerRow.appendChild(roleHeaderContainer);
 
+        const raciLetters = ["R", "A", "C", "I"];
+        raciLetters.forEach(letter => {
+          const headerContainer = document.createElement("div");
+          headerContainer.className = "header-checkbox";
+          
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.id = `select-all-${letter}`;
+          
+          const label = document.createElement("label");
+          label.htmlFor = `select-all-${letter}`;
+          label.textContent = letter;
+          
+          headerContainer.appendChild(checkbox);
+          headerContainer.appendChild(label);
+          headerRow.appendChild(headerContainer);
+        });
+        
+        container.appendChild(headerRow);
+
+        // Create rows for each role
         roles
           .slice()
           .sort((a, b) => a.name.localeCompare(b.name))
           .forEach((role) => {
-            const option = document.createElement("option");
-            option.value = role.id;
-            option.textContent = role.name;
-            select.appendChild(option);
+            const row = document.createElement("div");
+            row.className = "checkbox-row";
+
+            // Role label with checkbox
+            const roleLabel = document.createElement("div");
+            roleLabel.className = "role-label";
+            
+            const roleCheckbox = document.createElement("input");
+            roleCheckbox.type = "checkbox";
+            roleCheckbox.id = `role-${role.id}`;
+            
+            const roleNameSpan = document.createElement("span");
+            roleNameSpan.textContent = role.name;
+            
+            roleLabel.appendChild(roleCheckbox);
+            roleLabel.appendChild(roleNameSpan);
+            row.appendChild(roleLabel);
+
+            // RACI checkboxes
+            raciLetters.forEach(letter => {
+              const checkboxContainer = document.createElement("div");
+              checkboxContainer.className = "raci-checkbox";
+
+              const checkbox = document.createElement("input");
+              checkbox.type = "checkbox";
+              checkbox.id = `filter-${role.id}-${letter}`;
+              checkbox.value = `${role.id}-${letter}`;
+              
+              // Set initial state
+              const key = `${role.id}-${letter}`;
+              checkbox.checked = filters.roleRaci.get(key) || true;
+
+              const label = document.createElement("label");
+              label.htmlFor = checkbox.id;
+              label.textContent = letter;
+
+              checkboxContainer.appendChild(checkbox);
+              checkboxContainer.appendChild(label);
+              row.appendChild(checkboxContainer);
+
+              // Add event listener
+              checkbox.addEventListener("change", (event) => {
+                const key = `${role.id}-${letter}`;
+                filters.roleRaci.set(key, event.target.checked);
+                // Update header checkboxes
+                updateHeaderCheckboxes();
+                if (cachedData) {
+                  redraw();
+                }
+              });
+            });
+
+            // Add event listener for role checkbox
+            roleCheckbox.addEventListener("change", (event) => {
+              const isChecked = event.target.checked;
+              raciLetters.forEach(letter => {
+                const key = `${role.id}-${letter}`;
+                filters.roleRaci.set(key, isChecked);
+                const checkbox = document.getElementById(`filter-${role.id}-${letter}`);
+                if (checkbox) checkbox.checked = isChecked;
+              });
+              // Update header checkboxes
+              updateHeaderCheckboxes();
+              if (cachedData) {
+                redraw();
+              }
+            });
+
+            container.appendChild(row);
           });
 
-        select.value = filters.role;
-        if (filters.role !== "all" && select.selectedIndex === -1) {
-          filters.role = "all";
-          select.value = filters.role;
-        }
+        // Add select all / clear all functionality
+        const selectAllBtn = document.getElementById("select-all");
+        const clearAllBtn = document.getElementById("clear-all");
 
-        if (!select.dataset.bound) {
-          select.addEventListener("change", (event) => {
-            filters.role = event.target.value || "all";
-            if (cachedData) {
-              redraw();
-            }
+        selectAllBtn.onclick = () => {
+          roles.forEach(role => {
+            raciLetters.forEach(letter => {
+              const key = `${role.id}-${letter}`;
+              filters.roleRaci.set(key, true);
+              const checkbox = document.getElementById(`filter-${role.id}-${letter}`);
+              if (checkbox) checkbox.checked = true;
+            });
           });
-          select.dataset.bound = "true";
-        }
-
-        const raciSelect = document.getElementById("raci-filter");
-        raciSelect.value = filters.raci;
-        if (!raciSelect.dataset.bound) {
-          raciSelect.addEventListener("change", (event) => {
-            filters.raci = event.target.value || "all";
-            if (cachedData) {
-              redraw();
-            }
-          });
-          raciSelect.dataset.bound = "true";
-        }
-      }
-
-      function populateDependencyTypeFilter() {
-        const select = document.getElementById("dependency-type-filter");
-        select.innerHTML = "";
-
-        const addOption = (value, label) => {
-          const option = document.createElement("option");
-          option.value = value;
-          option.textContent = label;
-          select.appendChild(option);
+          // Update header checkboxes
+          updateHeaderCheckboxes();
+          if (cachedData) redraw();
         };
 
-        addOption("all", "All types");
-        const types = dependencyTypes.length ? dependencyTypes : ["depends_on"];
-        types.forEach((type) => addOption(type, type.replace(/_/g, " ")));
-
-        if (filters.dependencyType !== "all" && !types.includes(filters.dependencyType)) {
-          filters.dependencyType = "all";
-        }
-        select.value = filters.dependencyType;
-
-        if (!select.dataset.bound) {
-          select.addEventListener("change", (event) => {
-            filters.dependencyType = event.target.value || "all";
-            if (cachedData) {
-              renderDependencyGraph(cachedData);
-            }
+        clearAllBtn.onclick = () => {
+          roles.forEach(role => {
+            raciLetters.forEach(letter => {
+              const key = `${role.id}-${letter}`;
+              filters.roleRaci.set(key, false);
+              const checkbox = document.getElementById(`filter-${role.id}-${letter}`);
+              if (checkbox) checkbox.checked = false;
+            });
           });
-          select.dataset.bound = "true";
+          // Update header checkboxes
+          updateHeaderCheckboxes();
+          if (cachedData) redraw();
+        };
+
+        // Header checkbox handlers
+        const roleHeaderCheckbox = document.getElementById("select-all-roles");
+        if (roleHeaderCheckbox) {
+          roleHeaderCheckbox.addEventListener("change", (event) => {
+            const isChecked = event.target.checked;
+            roles.forEach(role => {
+              raciLetters.forEach(letter => {
+                const key = `${role.id}-${letter}`;
+                filters.roleRaci.set(key, isChecked);
+                const checkbox = document.getElementById(`filter-${role.id}-${letter}`);
+                if (checkbox) checkbox.checked = isChecked;
+              });
+            });
+            // Update individual RACI header checkboxes
+            raciLetters.forEach(letter => {
+              const headerCheckbox = document.getElementById(`select-all-${letter}`);
+              if (headerCheckbox) headerCheckbox.checked = isChecked;
+            });
+            if (cachedData) redraw();
+          });
+        }
+
+        raciLetters.forEach(letter => {
+          const headerCheckbox = document.getElementById(`select-all-${letter}`);
+          if (headerCheckbox) {
+            headerCheckbox.addEventListener("change", (event) => {
+              const isChecked = event.target.checked;
+              roles.forEach(role => {
+                const key = `${role.id}-${letter}`;
+                filters.roleRaci.set(key, isChecked);
+                const checkbox = document.getElementById(`filter-${role.id}-${letter}`);
+                if (checkbox) checkbox.checked = isChecked;
+              });
+              // Update role select all checkbox
+              updateRoleSelectAllCheckbox();
+              if (cachedData) redraw();
+            });
+          }
+        });
+
+        // Helper function to update header checkboxes based on current state
+        function updateHeaderCheckboxes() {
+          // Update role select all checkbox
+          updateRoleSelectAllCheckbox();
+          
+          // Update individual RACI checkboxes
+          raciLetters.forEach(letter => {
+            const allChecked = roles.every(role => {
+              const key = `${role.id}-${letter}`;
+              return filters.roleRaci.get(key) || false;
+            });
+            const headerCheckbox = document.getElementById(`select-all-${letter}`);
+            if (headerCheckbox) headerCheckbox.checked = allChecked;
+          });
+
+          // Update individual role row checkboxes
+          roles.forEach(role => {
+            const allChecked = raciLetters.every(letter => {
+              const key = `${role.id}-${letter}`;
+              return filters.roleRaci.get(key) || false;
+            });
+            const roleCheckbox = document.getElementById(`role-${role.id}`);
+            if (roleCheckbox) roleCheckbox.checked = allChecked;
+          });
+        }
+
+        function updateRoleSelectAllCheckbox() {
+          const allChecked = roles.every(role => {
+            return raciLetters.every(letter => {
+              const key = `${role.id}-${letter}`;
+              return filters.roleRaci.get(key) || false;
+            });
+          });
+          const roleSelectAllCheckbox = document.getElementById("select-all-roles");
+          if (roleSelectAllCheckbox) roleSelectAllCheckbox.checked = allChecked;
         }
       }
+
 
       function renderDependencyLegend() {
         const legend = d3.select("#dependency-legend");
@@ -659,9 +890,8 @@
 
         const links = aggregateLinks(data);
         const filteredLinks = links.filter((link) => {
-          const roleMatch = filters.role === "all" || link.role_id === filters.role;
-          const raciMatch = filters.raci === "all" || link.raci === filters.raci;
-          return roleMatch && raciMatch;
+          const key = `${link.role_id}-${link.raci}`;
+          return filters.roleRaci.get(key) || false;
         });
 
         if (!filteredLinks.length) {
@@ -879,29 +1109,26 @@
       }
 
       function actionMatchesFilters(actionId) {
-        const roleFilter = filters.role;
-        const raciFilter = filters.raci;
-        if (roleFilter === "all" && raciFilter === "all") {
+        // If no filters are selected, show everything
+        const hasAnyFilter = Array.from(filters.roleRaci.values()).some(checked => checked);
+        if (!hasAnyFilter) {
           return true;
         }
 
         const assignments = actionAssignments.get(actionId);
         if (!assignments) return false;
 
-        if (roleFilter !== "all") {
-          const letters = assignments.get(roleFilter);
-          if (!letters) return false;
-          if (raciFilter === "all") return true;
-          return letters.has(raciFilter);
+        // Check if any of the selected role-RACI combinations exist for this action
+        for (const [key, isSelected] of filters.roleRaci) {
+          if (!isSelected) continue;
+          
+          const [roleId, raciLetter] = key.split('-');
+          const letters = assignments.get(roleId);
+          if (letters && letters.has(raciLetter)) {
+            return true;
+          }
         }
 
-        if (raciFilter === "all") {
-          return true;
-        }
-
-        for (const letters of assignments.values()) {
-          if (letters.has(raciFilter)) return true;
-        }
         return false;
       }
 
@@ -910,10 +1137,7 @@
         container.selectAll("*").remove();
 
         const allEdges = data.activity_dependencies || [];
-        const typeFilteredEdges =
-          filters.dependencyType === "all"
-            ? allEdges
-            : allEdges.filter((edge) => edge.type === filters.dependencyType);
+        const dependencyEdges = allEdges;
 
         const roleLookup = new Map(data.roles.map((role) => [role.id, role.name]));
         const matchedActions = new Set();
@@ -923,14 +1147,14 @@
           }
         }
 
-        const filterActive = filters.role !== "all" || filters.raci !== "all";
-        const dependencyEdges = typeFilteredEdges.filter((edge) => {
+        const filterActive = Array.from(filters.roleRaci.values()).some(checked => checked);
+        const filteredDependencyEdges = dependencyEdges.filter((edge) => {
           if (!filterActive) return true;
           return matchedActions.has(edge.source_action_id) || matchedActions.has(edge.target_action_id);
         });
 
         const visibleActionIds = new Set(matchedActions);
-        dependencyEdges.forEach((edge) => {
+        filteredDependencyEdges.forEach((edge) => {
           visibleActionIds.add(edge.source_action_id);
           visibleActionIds.add(edge.target_action_id);
         });
@@ -1056,7 +1280,7 @@
           }
         });
 
-        const edgesData = dependencyEdges
+        const edgesData = filteredDependencyEdges
           .map((edge) => {
             const targetPos = nodePositions.get(edge.target_action_id);
             const sourcePos = nodePositions.get(edge.source_action_id);
@@ -1226,6 +1450,20 @@
           });
       }
 
+      function hasRoleRaciFilter(roleId, letters, filterActive) {
+        if (!filterActive) return true;
+        return letters.some(letter => {
+          const key = `${roleId}-${letter}`;
+          return filters.roleRaci.get(key) || false;
+        });
+      }
+
+      function hasRoleFilter(roleId) {
+        return Array.from(filters.roleRaci.keys()).some(key => 
+          key.startsWith(`${roleId}-`) && filters.roleRaci.get(key)
+        );
+      }
+
       function renderResponsibilityMatrix(data) {
         closeMatrixEditor();
 
@@ -1241,13 +1479,12 @@
         roles.forEach((role) => {
           headerRow
             .append("th")
-            .attr("class", "role-header" + (filters.role === role.id ? " highlight" : ""))
+            .attr("class", "role-header" + (hasRoleFilter(role.id) ? " highlight" : ""))
             .text(role.name);
         });
 
         const tbody = table.append("tbody");
-        const raciFilterActive = filters.raci !== "all";
-        const roleFilterActive = filters.role !== "all";
+        const filterActive = Array.from(filters.roleRaci.values()).some(checked => checked);
 
         data.activity_groups.forEach((group) => {
           const groupActions = data.actions
@@ -1293,8 +1530,7 @@
               .datum(cellData)
               .on("click", handleMatrixCellClick)
               .on("keydown", handleMatrixCellKeydown);
-            const matchesRole = !roleFilterActive || role.id === filters.role;
-            const matchesRaci = !raciFilterActive || letters.includes(filters.raci);
+            const matchesFilter = hasRoleRaciFilter(role.id, letters, filterActive);
             const hasLetters = letters.length > 0;
 
             if (!hasLetters) {
@@ -1303,9 +1539,9 @@
                 cell.text(letters.join("/"));
               }
 
-              if (hasLetters && actionHighlight && matchesRole && matchesRaci) {
+              if (hasLetters && actionHighlight && matchesFilter) {
                 cell.classed("highlight", true);
-              } else if (roleFilterActive || raciFilterActive) {
+              } else if (filterActive) {
                 cell.classed("dimmed", true);
               }
 
@@ -1401,22 +1637,20 @@
           .scaleOrdinal(dependencyTypes.length ? dependencyTypes : ["depends_on"], d3.schemeTableau10);
 
         if (resetFilters) {
-          filters.role = "all";
-          filters.raci = "all";
-          filters.dependencyType = "all";
+          filters.roleRaci.clear();
+          // Set all role-RACI combinations to true by default
+          normalized.roles.forEach(role => {
+            ['R', 'A', 'C', 'I'].forEach(letter => {
+              const key = `${role.id}-${letter}`;
+              filters.roleRaci.set(key, true);
+            });
+          });
         }
 
-        if (filters.role !== "all" && !normalized.roles.some((role) => role.id === filters.role)) {
-          filters.role = "all";
-        }
-        if (filters.dependencyType !== "all" && !dependencyTypes.includes(filters.dependencyType)) {
-          filters.dependencyType = "all";
-        }
 
         renderSummary(normalized);
         renderWarnings(normalized.metrics.action_warnings || []);
-        populateRoleFilter(normalized.roles);
-        populateDependencyTypeFilter();
+        createCheckboxMatrix(normalized.roles);
         renderLegend();
         renderDependencyLegend();
         closeMatrixEditor();

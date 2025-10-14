@@ -16,6 +16,11 @@
       "aliases": []
     },
     {
+      "id": "lead_dm",
+      "name": "Lead DM",
+      "aliases": []
+    },
+    {
       "id": "product_owner",
       "name": "Product Owner",
       "aliases": []
@@ -38,11 +43,6 @@
   ],
   "activity_groups": [
     {
-      "id": "goals_management",
-      "title": "Goals Management",
-      "description": "Anchor the portfolio with clear objectives and KPIs before defining how teams work."
-    },
-    {
       "id": "performance_management",
       "title": "Performance Management",
       "description": "Manage individual performance reviews and team member development."
@@ -63,11 +63,6 @@
       "description": "Execute against the pipeline that discovery creates."
     },
     {
-      "id": "quality_risk_management",
-      "title": "Quality & Risk Management",
-      "description": "Apply governance and assurance gates before anything ships."
-    },
-    {
       "id": "release_deployment",
       "title": "Release & Deployment",
       "description": "Move approved increments into production."
@@ -76,33 +71,14 @@
       "id": "platform_support_incidents",
       "title": "Platform Support & Incidents",
       "description": "Run and improve live services after release, closing the feedback loop."
+    },
+    {
+      "id": "quality_risk_management",
+      "title": "Quality & Risk Management",
+      "description": "Apply governance and assurance gates before anything ships."
     }
   ],
   "actions": [
-    {
-      "id": "goals_management__define_goal_setting_framework",
-      "name": "Define goal-setting framework",
-      "group_id": "goals_management",
-      "details": null
-    },
-    {
-      "id": "goals_management__set_team_level_goals",
-      "name": "Set team-level goals",
-      "group_id": "goals_management",
-      "details": null
-    },
-    {
-      "id": "goals_management__track_goal_progress",
-      "name": "Track goal progress",
-      "group_id": "goals_management",
-      "details": null
-    },
-    {
-      "id": "goals_management__align_team_goals_to_company_objectives",
-      "name": "Align team goals to company objectives",
-      "group_id": "goals_management",
-      "details": null
-    },
     {
       "id": "performance_management__define_performance_review_framework",
       "name": "Define performance review framework",
@@ -188,6 +164,24 @@
       "details": null
     },
     {
+      "id": "discovery_stage__validate_business_value",
+      "name": "Validate business value",
+      "group_id": "discovery_stage",
+      "details": null
+    },
+    {
+      "id": "discovery_stage__prepare_implementation_ready_requirements_for_team_lead_features",
+      "name": "Prepare implementation-ready requirements for team lead features",
+      "group_id": "discovery_stage",
+      "details": null
+    },
+    {
+      "id": "discovery_stage__prepare_implementation_ready_requirements",
+      "name": "Prepare implementation-ready requirements",
+      "group_id": "discovery_stage",
+      "details": null
+    },
+    {
       "id": "discovery_stage__validate_requirements_are_implementation_ready",
       "name": "Validate requirements are implementation-ready",
       "group_id": "discovery_stage",
@@ -202,18 +196,6 @@
     {
       "id": "discovery_stage__identify_technical_risks_constraints",
       "name": "Identify technical risks/constraints",
-      "group_id": "discovery_stage",
-      "details": null
-    },
-    {
-      "id": "discovery_stage__validate_business_value",
-      "name": "Validate business value",
-      "group_id": "discovery_stage",
-      "details": null
-    },
-    {
-      "id": "discovery_stage__prepare_implementation_ready_requirements",
-      "name": "Prepare implementation-ready requirements",
       "group_id": "discovery_stage",
       "details": null
     },
@@ -254,6 +236,12 @@
       "details": null
     },
     {
+      "id": "delivery_stage_planning_execution__backlog_refinement",
+      "name": "Backlog refinement",
+      "group_id": "delivery_stage_planning_execution",
+      "details": null
+    },
+    {
       "id": "delivery_stage_planning_execution__remove_blockers_team_level",
       "name": "Remove blockers (team-level)",
       "group_id": "delivery_stage_planning_execution",
@@ -272,6 +260,12 @@
       "details": null
     },
     {
+      "id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "name": "Drive team process improvement",
+      "group_id": "delivery_stage_planning_execution",
+      "details": null
+    },
+    {
       "id": "delivery_stage_planning_execution__facilitate_sprint_reviews",
       "name": "Facilitate sprint reviews",
       "group_id": "delivery_stage_planning_execution",
@@ -281,42 +275,6 @@
       "id": "delivery_stage_planning_execution__facilitate_feature_retrospectives",
       "name": "Facilitate feature retrospectives",
       "group_id": "delivery_stage_planning_execution",
-      "details": null
-    },
-    {
-      "id": "delivery_stage_planning_execution__backlog_refinement",
-      "name": "Backlog refinement",
-      "group_id": "delivery_stage_planning_execution",
-      "details": null
-    },
-    {
-      "id": "delivery_stage_planning_execution__drive_team_process_improvement",
-      "name": "Drive team process improvement",
-      "group_id": "delivery_stage_planning_execution",
-      "details": null
-    },
-    {
-      "id": "quality_risk_management__define_quality_standards",
-      "name": "Define quality standards",
-      "group_id": "quality_risk_management",
-      "details": null
-    },
-    {
-      "id": "quality_risk_management__enforce_quality_gates",
-      "name": "Enforce quality gates",
-      "group_id": "quality_risk_management",
-      "details": null
-    },
-    {
-      "id": "quality_risk_management__code_review_standards",
-      "name": "Code review standards",
-      "group_id": "quality_risk_management",
-      "details": null
-    },
-    {
-      "id": "quality_risk_management__technical_debt_prioritization",
-      "name": "Technical debt prioritization",
-      "group_id": "quality_risk_management",
       "details": null
     },
     {
@@ -332,8 +290,8 @@
       "details": null
     },
     {
-      "id": "release_deployment__approve_release_scope",
-      "name": "Approve release scope",
+      "id": "release_deployment__approve_and_control_release_scope",
+      "name": "Approve and control release scope",
       "group_id": "release_deployment",
       "details": null
     },
@@ -402,106 +360,28 @@
       "name": "Track incident action items",
       "group_id": "platform_support_incidents",
       "details": null
+    },
+    {
+      "id": "quality_risk_management__define_quality_standards",
+      "name": "Define quality standards",
+      "group_id": "quality_risk_management",
+      "details": null
+    },
+    {
+      "id": "quality_risk_management__code_review_standards",
+      "name": "Code review standards",
+      "group_id": "quality_risk_management",
+      "details": null
+    },
+    {
+      "id": "quality_risk_management__technical_debt_prioritization",
+      "name": "Technical debt prioritization",
+      "group_id": "quality_risk_management",
+      "details": null
     }
   ],
   "relationships": [
     {
-      "action_id": "goals_management__define_goal_setting_framework",
-      "role_id": "delivery_manager",
-      "raci": "R",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__define_goal_setting_framework",
-      "role_id": "delivery_manager",
-      "raci": "A",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__define_goal_setting_framework",
-      "role_id": "senior_team_lead",
-      "raci": "I",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__define_goal_setting_framework",
-      "role_id": "team_lead",
-      "raci": "C",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__set_team_level_goals",
-      "role_id": "delivery_manager",
-      "raci": "C",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__set_team_level_goals",
-      "role_id": "senior_team_lead",
-      "raci": "I",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__set_team_level_goals",
-      "role_id": "team_lead",
-      "raci": "R",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__set_team_level_goals",
-      "role_id": "team_lead",
-      "raci": "A",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__track_goal_progress",
-      "role_id": "delivery_manager",
-      "raci": "C",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__track_goal_progress",
-      "role_id": "senior_team_lead",
-      "raci": "I",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__track_goal_progress",
-      "role_id": "team_lead",
-      "raci": "R",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__track_goal_progress",
-      "role_id": "team_lead",
-      "raci": "A",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__align_team_goals_to_company_objectives",
-      "role_id": "delivery_manager",
-      "raci": "R",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__align_team_goals_to_company_objectives",
-      "role_id": "delivery_manager",
-      "raci": "A",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__align_team_goals_to_company_objectives",
-      "role_id": "senior_team_lead",
-      "raci": "I",
-      "group_id": "goals_management"
-    },
-    {
-      "action_id": "goals_management__align_team_goals_to_company_objectives",
-      "role_id": "team_lead",
-      "raci": "C",
-      "group_id": "goals_management"
-    },
-    {
       "action_id": "performance_management__define_performance_review_framework",
       "role_id": "delivery_manager",
       "raci": "R",
@@ -599,6 +479,12 @@
     },
     {
       "action_id": "sdlc_process_management__approve_major_process_changes",
+      "role_id": "lead_dm",
+      "raci": "C",
+      "group_id": "sdlc_process_management"
+    },
+    {
+      "action_id": "sdlc_process_management__approve_major_process_changes",
       "role_id": "product_owner",
       "raci": "I",
       "group_id": "sdlc_process_management"
@@ -629,7 +515,7 @@
     },
     {
       "action_id": "sdlc_process_management__define_and_maintain_sdlc_framework",
-      "role_id": "delivery_manager",
+      "role_id": "lead_dm",
       "raci": "A",
       "group_id": "sdlc_process_management"
     },
@@ -642,17 +528,17 @@
     {
       "action_id": "sdlc_process_management__define_and_maintain_sdlc_framework",
       "role_id": "senior_team_lead",
-      "raci": "I",
-      "group_id": "sdlc_process_management"
-    },
-    {
-      "action_id": "sdlc_process_management__define_and_maintain_sdlc_framework",
-      "role_id": "team_lead",
       "raci": "C",
       "group_id": "sdlc_process_management"
     },
     {
       "action_id": "sdlc_process_management__define_and_maintain_sdlc_framework",
+      "role_id": "team_lead",
+      "raci": "C",
+      "group_id": "sdlc_process_management"
+    },
+    {
+      "action_id": "sdlc_process_management__define_and_maintain_sdlc_framework",
       "role_id": "tech_lead",
       "raci": "C",
       "group_id": "sdlc_process_management"
@@ -667,6 +553,12 @@
       "action_id": "sdlc_process_management__establish_jira_confluence_structure",
       "role_id": "delivery_manager",
       "raci": "A",
+      "group_id": "sdlc_process_management"
+    },
+    {
+      "action_id": "sdlc_process_management__establish_jira_confluence_structure",
+      "role_id": "lead_dm",
+      "raci": "C",
       "group_id": "sdlc_process_management"
     },
     {
@@ -697,6 +589,12 @@
       "action_id": "sdlc_process_management__implement_team_specific_processes",
       "role_id": "delivery_manager",
       "raci": "C",
+      "group_id": "sdlc_process_management"
+    },
+    {
+      "action_id": "sdlc_process_management__implement_team_specific_processes",
+      "role_id": "lead_dm",
+      "raci": "I",
       "group_id": "sdlc_process_management"
     },
     {
@@ -739,6 +637,12 @@
       "action_id": "sdlc_process_management__define_delivery_metrics_kpis",
       "role_id": "delivery_manager",
       "raci": "A",
+      "group_id": "sdlc_process_management"
+    },
+    {
+      "action_id": "sdlc_process_management__define_delivery_metrics_kpis",
+      "role_id": "lead_dm",
+      "raci": "C",
       "group_id": "sdlc_process_management"
     },
     {
@@ -775,6 +679,12 @@
       "action_id": "sdlc_process_management__monitor_and_report_delivery_metrics",
       "role_id": "delivery_manager",
       "raci": "A",
+      "group_id": "sdlc_process_management"
+    },
+    {
+      "action_id": "sdlc_process_management__monitor_and_report_delivery_metrics",
+      "role_id": "lead_dm",
+      "raci": "C",
       "group_id": "sdlc_process_management"
     },
     {
@@ -811,6 +721,12 @@
       "action_id": "sdlc_process_management__drive_process_improvement_initiatives",
       "role_id": "delivery_manager",
       "raci": "A",
+      "group_id": "sdlc_process_management"
+    },
+    {
+      "action_id": "sdlc_process_management__drive_process_improvement_initiatives",
+      "role_id": "lead_dm",
+      "raci": "C",
       "group_id": "sdlc_process_management"
     },
     {
@@ -864,7 +780,7 @@
     {
       "action_id": "discovery_stage__define_discovery_framework",
       "role_id": "senior_team_lead",
-      "raci": "I",
+      "raci": "C",
       "group_id": "discovery_stage"
     },
     {
@@ -899,6 +815,12 @@
     },
     {
       "action_id": "discovery_stage__run_simple_feature_discovery_sessions",
+      "role_id": "senior_team_lead",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__run_simple_feature_discovery_sessions",
       "role_id": "team_lead",
       "raci": "R",
       "group_id": "discovery_stage"
@@ -946,6 +868,120 @@
       "group_id": "discovery_stage"
     },
     {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "customer",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "delivery_manager",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "product_owner",
+      "raci": "A",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "team_lead",
+      "raci": "R",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "tech_lead",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements_for_team_lead_features",
+      "role_id": "customer",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements_for_team_lead_features",
+      "role_id": "delivery_manager",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements_for_team_lead_features",
+      "role_id": "product_owner",
+      "raci": "A",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements_for_team_lead_features",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements_for_team_lead_features",
+      "role_id": "team_lead",
+      "raci": "R",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements_for_team_lead_features",
+      "role_id": "tech_lead",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "customer",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "delivery_manager",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "product_owner",
+      "raci": "R",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "product_owner",
+      "raci": "A",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "team_lead",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "tech_lead",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
       "action_id": "discovery_stage__validate_requirements_are_implementation_ready",
       "role_id": "customer",
       "raci": "I",
@@ -960,13 +996,25 @@
     {
       "action_id": "discovery_stage__validate_requirements_are_implementation_ready",
       "role_id": "product_owner",
-      "raci": "A",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_requirements_are_implementation_ready",
+      "role_id": "senior_team_lead",
+      "raci": "C",
       "group_id": "discovery_stage"
     },
     {
       "action_id": "discovery_stage__validate_requirements_are_implementation_ready",
       "role_id": "team_lead",
       "raci": "R",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_requirements_are_implementation_ready",
+      "role_id": "team_lead",
+      "raci": "A",
       "group_id": "discovery_stage"
     },
     {
@@ -1037,6 +1085,12 @@
     },
     {
       "action_id": "discovery_stage__identify_technical_risks_constraints",
+      "role_id": "senior_team_lead",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__identify_technical_risks_constraints",
       "role_id": "team_lead",
       "raci": "C",
       "group_id": "discovery_stage"
@@ -1051,78 +1105,6 @@
       "action_id": "discovery_stage__identify_technical_risks_constraints",
       "role_id": "tech_lead",
       "raci": "A",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__validate_business_value",
-      "role_id": "customer",
-      "raci": "I",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__validate_business_value",
-      "role_id": "delivery_manager",
-      "raci": "I",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__validate_business_value",
-      "role_id": "product_owner",
-      "raci": "A",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__validate_business_value",
-      "role_id": "senior_team_lead",
-      "raci": "I",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__validate_business_value",
-      "role_id": "team_lead",
-      "raci": "R",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__validate_business_value",
-      "role_id": "tech_lead",
-      "raci": "C",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
-      "role_id": "customer",
-      "raci": "C",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
-      "role_id": "delivery_manager",
-      "raci": "C",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
-      "role_id": "product_owner",
-      "raci": "A",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
-      "role_id": "senior_team_lead",
-      "raci": "I",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
-      "role_id": "team_lead",
-      "raci": "R",
-      "group_id": "discovery_stage"
-    },
-    {
-      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
-      "role_id": "tech_lead",
-      "raci": "I",
       "group_id": "discovery_stage"
     },
     {
@@ -1135,6 +1117,12 @@
       "action_id": "delivery_stage_planning_execution__sprint_iteration_planning",
       "role_id": "product_owner",
       "raci": "C",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__sprint_iteration_planning",
+      "role_id": "senior_team_lead",
+      "raci": "I",
       "group_id": "delivery_stage_planning_execution"
     },
     {
@@ -1165,6 +1153,12 @@
       "action_id": "delivery_stage_planning_execution__backlog_prioritization_team_level",
       "role_id": "product_owner",
       "raci": "C",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_prioritization_team_level",
+      "role_id": "senior_team_lead",
+      "raci": "I",
       "group_id": "delivery_stage_planning_execution"
     },
     {
@@ -1266,6 +1260,12 @@
     {
       "action_id": "delivery_stage_planning_execution__sprint_execution",
       "role_id": "product_owner",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__sprint_execution",
+      "role_id": "senior_team_lead",
       "raci": "I",
       "group_id": "delivery_stage_planning_execution"
     },
@@ -1295,6 +1295,18 @@
     },
     {
       "action_id": "delivery_stage_planning_execution__daily_standups",
+      "role_id": "product_owner",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__daily_standups",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__daily_standups",
       "role_id": "team_lead",
       "raci": "R",
       "group_id": "delivery_stage_planning_execution"
@@ -1312,6 +1324,42 @@
       "group_id": "delivery_stage_planning_execution"
     },
     {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "delivery_manager",
+      "raci": "C",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "product_owner",
+      "raci": "C",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "team_lead",
+      "raci": "R",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "team_lead",
+      "raci": "A",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "tech_lead",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
       "action_id": "delivery_stage_planning_execution__remove_blockers_team_level",
       "role_id": "delivery_manager",
       "raci": "C",
@@ -1320,6 +1368,12 @@
     {
       "action_id": "delivery_stage_planning_execution__remove_blockers_team_level",
       "role_id": "product_owner",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__remove_blockers_team_level",
+      "role_id": "senior_team_lead",
       "raci": "I",
       "group_id": "delivery_stage_planning_execution"
     },
@@ -1391,6 +1445,12 @@
     },
     {
       "action_id": "delivery_stage_planning_execution__facilitate_team_retrospectives",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__facilitate_team_retrospectives",
       "role_id": "team_lead",
       "raci": "R",
       "group_id": "delivery_stage_planning_execution"
@@ -1408,6 +1468,42 @@
       "group_id": "delivery_stage_planning_execution"
     },
     {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "delivery_manager",
+      "raci": "C",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "product_owner",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "team_lead",
+      "raci": "R",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "team_lead",
+      "raci": "A",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "tech_lead",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
       "action_id": "delivery_stage_planning_execution__facilitate_sprint_reviews",
       "role_id": "delivery_manager",
       "raci": "C",
@@ -1416,6 +1512,12 @@
     {
       "action_id": "delivery_stage_planning_execution__facilitate_sprint_reviews",
       "role_id": "product_owner",
+      "raci": "C",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__facilitate_sprint_reviews",
+      "role_id": "senior_team_lead",
       "raci": "I",
       "group_id": "delivery_stage_planning_execution"
     },
@@ -1472,210 +1574,6 @@
       "role_id": "tech_lead",
       "raci": "C",
       "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__backlog_refinement",
-      "role_id": "delivery_manager",
-      "raci": "C",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__backlog_refinement",
-      "role_id": "product_owner",
-      "raci": "C",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__backlog_refinement",
-      "role_id": "team_lead",
-      "raci": "R",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__backlog_refinement",
-      "role_id": "team_lead",
-      "raci": "A",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__backlog_refinement",
-      "role_id": "tech_lead",
-      "raci": "I",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
-      "role_id": "delivery_manager",
-      "raci": "C",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
-      "role_id": "product_owner",
-      "raci": "I",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
-      "role_id": "senior_team_lead",
-      "raci": "I",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
-      "role_id": "team_lead",
-      "raci": "R",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
-      "role_id": "team_lead",
-      "raci": "A",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
-      "role_id": "tech_lead",
-      "raci": "I",
-      "group_id": "delivery_stage_planning_execution"
-    },
-    {
-      "action_id": "quality_risk_management__define_quality_standards",
-      "role_id": "delivery_manager",
-      "raci": "R",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__define_quality_standards",
-      "role_id": "product_owner",
-      "raci": "I",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__define_quality_standards",
-      "role_id": "senior_team_lead",
-      "raci": "A",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__define_quality_standards",
-      "role_id": "team_lead",
-      "raci": "C",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__define_quality_standards",
-      "role_id": "tech_lead",
-      "raci": "C",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__enforce_quality_gates",
-      "role_id": "delivery_manager",
-      "raci": "R",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__enforce_quality_gates",
-      "role_id": "delivery_manager",
-      "raci": "A",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__enforce_quality_gates",
-      "role_id": "delivery_manager",
-      "raci": "C",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__enforce_quality_gates",
-      "role_id": "product_owner",
-      "raci": "I",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__enforce_quality_gates",
-      "role_id": "senior_team_lead",
-      "raci": "C",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__enforce_quality_gates",
-      "role_id": "team_lead",
-      "raci": "C",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__enforce_quality_gates",
-      "role_id": "tech_lead",
-      "raci": "C",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__code_review_standards",
-      "role_id": "delivery_manager",
-      "raci": "C",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__code_review_standards",
-      "role_id": "senior_team_lead",
-      "raci": "I",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__code_review_standards",
-      "role_id": "team_lead",
-      "raci": "C",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__code_review_standards",
-      "role_id": "tech_lead",
-      "raci": "R",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__code_review_standards",
-      "role_id": "tech_lead",
-      "raci": "A",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__technical_debt_prioritization",
-      "role_id": "delivery_manager",
-      "raci": "C",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__technical_debt_prioritization",
-      "role_id": "product_owner",
-      "raci": "I",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__technical_debt_prioritization",
-      "role_id": "senior_team_lead",
-      "raci": "I",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__technical_debt_prioritization",
-      "role_id": "team_lead",
-      "raci": "C",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__technical_debt_prioritization",
-      "role_id": "tech_lead",
-      "raci": "R",
-      "group_id": "quality_risk_management"
-    },
-    {
-      "action_id": "quality_risk_management__technical_debt_prioritization",
-      "role_id": "tech_lead",
-      "raci": "A",
-      "group_id": "quality_risk_management"
     },
     {
       "action_id": "release_deployment__define_release_process_framework",
@@ -1762,43 +1660,43 @@
       "group_id": "release_deployment"
     },
     {
-      "action_id": "release_deployment__approve_release_scope",
+      "action_id": "release_deployment__approve_and_control_release_scope",
       "role_id": "delivery_manager",
       "raci": "C",
       "group_id": "release_deployment"
     },
     {
-      "action_id": "release_deployment__approve_release_scope",
+      "action_id": "release_deployment__approve_and_control_release_scope",
       "role_id": "pre",
       "raci": "I",
       "group_id": "release_deployment"
     },
     {
-      "action_id": "release_deployment__approve_release_scope",
+      "action_id": "release_deployment__approve_and_control_release_scope",
       "role_id": "product_owner",
       "raci": "C",
       "group_id": "release_deployment"
     },
     {
-      "action_id": "release_deployment__approve_release_scope",
+      "action_id": "release_deployment__approve_and_control_release_scope",
       "role_id": "senior_team_lead",
       "raci": "I",
       "group_id": "release_deployment"
     },
     {
-      "action_id": "release_deployment__approve_release_scope",
+      "action_id": "release_deployment__approve_and_control_release_scope",
       "role_id": "team_lead",
       "raci": "R",
       "group_id": "release_deployment"
     },
     {
-      "action_id": "release_deployment__approve_release_scope",
+      "action_id": "release_deployment__approve_and_control_release_scope",
       "role_id": "team_lead",
       "raci": "A",
       "group_id": "release_deployment"
     },
     {
-      "action_id": "release_deployment__approve_release_scope",
+      "action_id": "release_deployment__approve_and_control_release_scope",
       "role_id": "tech_lead",
       "raci": "C",
       "group_id": "release_deployment"
@@ -1866,6 +1764,12 @@
     {
       "action_id": "release_deployment__execute_deployment",
       "role_id": "product_owner",
+      "raci": "I",
+      "group_id": "release_deployment"
+    },
+    {
+      "action_id": "release_deployment__execute_deployment",
+      "role_id": "senior_team_lead",
       "raci": "I",
       "group_id": "release_deployment"
     },
@@ -1902,6 +1806,12 @@
     {
       "action_id": "release_deployment__production_monitoring_immediate_post_release",
       "role_id": "product_owner",
+      "raci": "I",
+      "group_id": "release_deployment"
+    },
+    {
+      "action_id": "release_deployment__production_monitoring_immediate_post_release",
+      "role_id": "senior_team_lead",
       "raci": "I",
       "group_id": "release_deployment"
     },
@@ -2099,6 +2009,12 @@
     },
     {
       "action_id": "platform_support_incidents__triage_platform_l1_support_incidents_requests",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "platform_support_incidents"
+    },
+    {
+      "action_id": "platform_support_incidents__triage_platform_l1_support_incidents_requests",
       "role_id": "team_lead",
       "raci": "R",
       "group_id": "platform_support_incidents"
@@ -2201,12 +2117,6 @@
     },
     {
       "action_id": "platform_support_incidents__track_incident_action_items",
-      "role_id": "delivery_manager",
-      "raci": "A",
-      "group_id": "platform_support_incidents"
-    },
-    {
-      "action_id": "platform_support_incidents__track_incident_action_items",
       "role_id": "pre",
       "raci": "C",
       "group_id": "platform_support_incidents"
@@ -2220,7 +2130,7 @@
     {
       "action_id": "platform_support_incidents__track_incident_action_items",
       "role_id": "senior_team_lead",
-      "raci": "I",
+      "raci": "A",
       "group_id": "platform_support_incidents"
     },
     {
@@ -2234,6 +2144,108 @@
       "role_id": "tech_lead",
       "raci": "I",
       "group_id": "platform_support_incidents"
+    },
+    {
+      "action_id": "quality_risk_management__define_quality_standards",
+      "role_id": "delivery_manager",
+      "raci": "R",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__define_quality_standards",
+      "role_id": "product_owner",
+      "raci": "I",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__define_quality_standards",
+      "role_id": "senior_team_lead",
+      "raci": "A",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__define_quality_standards",
+      "role_id": "team_lead",
+      "raci": "C",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__define_quality_standards",
+      "role_id": "tech_lead",
+      "raci": "C",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__code_review_standards",
+      "role_id": "delivery_manager",
+      "raci": "C",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__code_review_standards",
+      "role_id": "product_owner",
+      "raci": "I",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__code_review_standards",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__code_review_standards",
+      "role_id": "team_lead",
+      "raci": "C",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__code_review_standards",
+      "role_id": "tech_lead",
+      "raci": "R",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__code_review_standards",
+      "role_id": "tech_lead",
+      "raci": "A",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__technical_debt_prioritization",
+      "role_id": "delivery_manager",
+      "raci": "C",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__technical_debt_prioritization",
+      "role_id": "product_owner",
+      "raci": "I",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__technical_debt_prioritization",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__technical_debt_prioritization",
+      "role_id": "team_lead",
+      "raci": "C",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__technical_debt_prioritization",
+      "role_id": "tech_lead",
+      "raci": "R",
+      "group_id": "quality_risk_management"
+    },
+    {
+      "action_id": "quality_risk_management__technical_debt_prioritization",
+      "role_id": "tech_lead",
+      "raci": "A",
+      "group_id": "quality_risk_management"
     }
   ],
   "activity_dependencies": [
@@ -2381,6 +2393,39 @@
       "type": "depends_on"
     },
     {
+      "source_action_id": "delivery_stage_planning_execution__sprint_execution",
+      "source_action_name": "Sprint execution",
+      "source_group_id": "delivery_stage_planning_execution",
+      "source_group_title": "Delivery Stage - Planning & Execution",
+      "target_action_id": "delivery_stage_planning_execution__tasks_sizing_and_estimation",
+      "target_action_name": "Tasks sizing and estimation",
+      "target_group_id": "delivery_stage_planning_execution",
+      "target_group_title": "Delivery Stage - Planning & Execution",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "delivery_stage_planning_execution__sprint_iteration_planning",
+      "source_action_name": "Sprint/iteration planning",
+      "source_group_id": "delivery_stage_planning_execution",
+      "source_group_title": "Delivery Stage - Planning & Execution",
+      "target_action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "target_action_name": "Backlog refinement",
+      "target_group_id": "delivery_stage_planning_execution",
+      "target_group_title": "Delivery Stage - Planning & Execution",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "delivery_stage_planning_execution__sprint_iteration_planning",
+      "source_action_name": "Sprint/iteration planning",
+      "source_group_id": "delivery_stage_planning_execution",
+      "source_group_title": "Delivery Stage - Planning & Execution",
+      "target_action_id": "delivery_stage_planning_execution__tasks_sizing_and_estimation",
+      "target_action_name": "Tasks sizing and estimation",
+      "target_group_id": "delivery_stage_planning_execution",
+      "target_group_title": "Delivery Stage - Planning & Execution",
+      "type": "depends_on"
+    },
+    {
       "source_action_id": "delivery_stage_planning_execution__sprint_iteration_planning",
       "source_action_name": "Sprint/iteration planning",
       "source_group_id": "delivery_stage_planning_execution",
@@ -2451,8 +2496,41 @@
       "source_action_name": "Prepare implementation-ready requirements",
       "source_group_id": "discovery_stage",
       "source_group_title": "Discovery Stage",
+      "target_action_id": "discovery_stage__identify_technical_risks_constraints",
+      "target_action_name": "Identify technical risks/constraints",
+      "target_group_id": "discovery_stage",
+      "target_group_title": "Discovery Stage",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "source_action_name": "Prepare implementation-ready requirements",
+      "source_group_id": "discovery_stage",
+      "source_group_title": "Discovery Stage",
       "target_action_id": "discovery_stage__run_simple_feature_discovery_sessions",
       "target_action_name": "Run simple feature discovery sessions",
+      "target_group_id": "discovery_stage",
+      "target_group_title": "Discovery Stage",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "source_action_name": "Prepare implementation-ready requirements",
+      "source_group_id": "discovery_stage",
+      "source_group_title": "Discovery Stage",
+      "target_action_id": "discovery_stage__validate_business_value",
+      "target_action_name": "Validate business value",
+      "target_group_id": "discovery_stage",
+      "target_group_title": "Discovery Stage",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "discovery_stage__run_complex_cross_team_discovery",
+      "source_action_name": "Run complex/cross-team discovery",
+      "source_group_id": "discovery_stage",
+      "source_group_title": "Discovery Stage",
+      "target_action_id": "discovery_stage__define_discovery_framework",
+      "target_action_name": "Define discovery framework",
       "target_group_id": "discovery_stage",
       "target_group_title": "Discovery Stage",
       "type": "depends_on"
@@ -2484,8 +2562,30 @@
       "source_action_name": "Validate business value",
       "source_group_id": "discovery_stage",
       "source_group_title": "Discovery Stage",
+      "target_action_id": "discovery_stage__run_complex_cross_team_discovery",
+      "target_action_name": "Run complex/cross-team discovery",
+      "target_group_id": "discovery_stage",
+      "target_group_title": "Discovery Stage",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "discovery_stage__validate_business_value",
+      "source_action_name": "Validate business value",
+      "source_group_id": "discovery_stage",
+      "source_group_title": "Discovery Stage",
       "target_action_id": "discovery_stage__run_simple_feature_discovery_sessions",
       "target_action_name": "Run simple feature discovery sessions",
+      "target_group_id": "discovery_stage",
+      "target_group_title": "Discovery Stage",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "discovery_stage__validate_requirements_are_implementation_ready",
+      "source_action_name": "Validate requirements are implementation-ready",
+      "source_group_id": "discovery_stage",
+      "source_group_title": "Discovery Stage",
+      "target_action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "target_action_name": "Prepare implementation-ready requirements",
       "target_group_id": "discovery_stage",
       "target_group_title": "Discovery Stage",
       "type": "depends_on"
@@ -2513,50 +2613,6 @@
       "type": "depends_on"
     },
     {
-      "source_action_id": "goals_management__align_team_goals_to_company_objectives",
-      "source_action_name": "Align team goals to company objectives",
-      "source_group_id": "goals_management",
-      "source_group_title": "Goals Management",
-      "target_action_id": "goals_management__define_goal_setting_framework",
-      "target_action_name": "Define goal-setting framework",
-      "target_group_id": "goals_management",
-      "target_group_title": "Goals Management",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "goals_management__align_team_goals_to_company_objectives",
-      "source_action_name": "Align team goals to company objectives",
-      "source_group_id": "goals_management",
-      "source_group_title": "Goals Management",
-      "target_action_id": "goals_management__set_team_level_goals",
-      "target_action_name": "Set team-level goals",
-      "target_group_id": "goals_management",
-      "target_group_title": "Goals Management",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "goals_management__set_team_level_goals",
-      "source_action_name": "Set team-level goals",
-      "source_group_id": "goals_management",
-      "source_group_title": "Goals Management",
-      "target_action_id": "goals_management__define_goal_setting_framework",
-      "target_action_name": "Define goal-setting framework",
-      "target_group_id": "goals_management",
-      "target_group_title": "Goals Management",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "goals_management__track_goal_progress",
-      "source_action_name": "Track goal progress",
-      "source_group_id": "goals_management",
-      "source_group_title": "Goals Management",
-      "target_action_id": "goals_management__set_team_level_goals",
-      "target_action_name": "Set team-level goals",
-      "target_group_id": "goals_management",
-      "target_group_title": "Goals Management",
-      "type": "depends_on"
-    },
-    {
       "source_action_id": "performance_management__conduct_individual_performance_reviews",
       "source_action_name": "Conduct individual performance reviews",
       "source_group_id": "performance_management",
@@ -2565,17 +2621,6 @@
       "target_action_name": "Define performance review framework",
       "target_group_id": "performance_management",
       "target_group_title": "Performance Management",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "performance_management__define_performance_review_framework",
-      "source_action_name": "Define performance review framework",
-      "source_group_id": "performance_management",
-      "source_group_title": "Performance Management",
-      "target_action_id": "goals_management__define_goal_setting_framework",
-      "target_action_name": "Define goal-setting framework",
-      "target_group_id": "goals_management",
-      "target_group_title": "Goals Management",
       "type": "depends_on"
     },
     {
@@ -2693,6 +2738,17 @@
       "source_action_name": "Triage platform L1 support/incidents requests",
       "source_group_id": "platform_support_incidents",
       "source_group_title": "Platform Support & Incidents",
+      "target_action_id": "platform_support_incidents__define_support_process_framework",
+      "target_action_name": "Define support process framework",
+      "target_group_id": "platform_support_incidents",
+      "target_group_title": "Platform Support & Incidents",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "platform_support_incidents__triage_platform_l1_support_incidents_requests",
+      "source_action_name": "Triage platform L1 support/incidents requests",
+      "source_group_id": "platform_support_incidents",
+      "source_group_title": "Platform Support & Incidents",
       "target_action_id": "platform_support_incidents__handle_l0_incidents",
       "target_action_name": "Handle L0 incidents",
       "target_group_id": "platform_support_incidents",
@@ -2733,28 +2789,6 @@
       "type": "depends_on"
     },
     {
-      "source_action_id": "quality_risk_management__enforce_quality_gates",
-      "source_action_name": "Enforce quality gates",
-      "source_group_id": "quality_risk_management",
-      "source_group_title": "Quality & Risk Management",
-      "target_action_id": "delivery_stage_planning_execution__sprint_execution",
-      "target_action_name": "Sprint execution",
-      "target_group_id": "delivery_stage_planning_execution",
-      "target_group_title": "Delivery Stage - Planning & Execution",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "quality_risk_management__enforce_quality_gates",
-      "source_action_name": "Enforce quality gates",
-      "source_group_id": "quality_risk_management",
-      "source_group_title": "Quality & Risk Management",
-      "target_action_id": "quality_risk_management__define_quality_standards",
-      "target_action_name": "Define quality standards",
-      "target_group_id": "quality_risk_management",
-      "target_group_title": "Quality & Risk Management",
-      "type": "depends_on"
-    },
-    {
       "source_action_id": "quality_risk_management__technical_debt_prioritization",
       "source_action_name": "Technical debt prioritization",
       "source_group_id": "quality_risk_management",
@@ -2777,28 +2811,6 @@
       "type": "depends_on"
     },
     {
-      "source_action_id": "release_deployment__approve_release_scope",
-      "source_action_name": "Approve release scope",
-      "source_group_id": "release_deployment",
-      "source_group_title": "Release & Deployment",
-      "target_action_id": "delivery_stage_planning_execution__sprint_execution",
-      "target_action_name": "Sprint execution",
-      "target_group_id": "delivery_stage_planning_execution",
-      "target_group_title": "Delivery Stage - Planning & Execution",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "release_deployment__approve_release_scope",
-      "source_action_name": "Approve release scope",
-      "source_group_id": "release_deployment",
-      "source_group_title": "Release & Deployment",
-      "target_action_id": "release_deployment__plan_cross_team_release_coordination",
-      "target_action_name": "Plan cross-team release coordination",
-      "target_group_id": "release_deployment",
-      "target_group_title": "Release & Deployment",
-      "type": "depends_on"
-    },
-    {
       "source_action_id": "release_deployment__define_release_process_framework",
       "source_action_name": "Define release process framework",
       "source_group_id": "release_deployment",
@@ -2807,17 +2819,6 @@
       "target_action_name": "Sprint execution",
       "target_group_id": "delivery_stage_planning_execution",
       "target_group_title": "Delivery Stage - Planning & Execution",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "release_deployment__define_release_process_framework",
-      "source_action_name": "Define release process framework",
-      "source_group_id": "release_deployment",
-      "source_group_title": "Release & Deployment",
-      "target_action_id": "quality_risk_management__enforce_quality_gates",
-      "target_action_name": "Enforce quality gates",
-      "target_group_id": "quality_risk_management",
-      "target_group_title": "Quality & Risk Management",
       "type": "depends_on"
     },
     {
@@ -2825,8 +2826,8 @@
       "source_action_name": "Execute deployment",
       "source_group_id": "release_deployment",
       "source_group_title": "Release & Deployment",
-      "target_action_id": "release_deployment__approve_release_scope",
-      "target_action_name": "Approve release scope",
+      "target_action_id": "release_deployment__plan_cross_team_release_coordination",
+      "target_action_name": "Plan cross-team release coordination",
       "target_group_id": "release_deployment",
       "target_group_title": "Release & Deployment",
       "type": "depends_on"
@@ -2876,28 +2877,6 @@
       "type": "depends_on"
     },
     {
-      "source_action_id": "release_deployment__quality_gates_enforcement",
-      "source_action_name": "Quality gates enforcement",
-      "source_group_id": "release_deployment",
-      "source_group_title": "Release & Deployment",
-      "target_action_id": "quality_risk_management__enforce_quality_gates",
-      "target_action_name": "Enforce quality gates",
-      "target_group_id": "quality_risk_management",
-      "target_group_title": "Quality & Risk Management",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "release_deployment__release_communication_to_stakeholders",
-      "source_action_name": "Release communication to stakeholders",
-      "source_group_id": "release_deployment",
-      "source_group_title": "Release & Deployment",
-      "target_action_id": "release_deployment__approve_release_scope",
-      "target_action_name": "Approve release scope",
-      "target_group_id": "release_deployment",
-      "target_group_title": "Release & Deployment",
-      "type": "depends_on"
-    },
-    {
       "source_action_id": "release_deployment__release_communication_to_stakeholders",
       "source_action_name": "Release communication to stakeholders",
       "source_group_id": "release_deployment",
@@ -2931,17 +2910,6 @@
       "type": "depends_on"
     },
     {
-      "source_action_id": "sdlc_process_management__approve_major_process_changes",
-      "source_action_name": "Approve major process changes",
-      "source_group_id": "sdlc_process_management",
-      "source_group_title": "SDLC & Process Management",
-      "target_action_id": "goals_management__align_team_goals_to_company_objectives",
-      "target_action_name": "Align team goals to company objectives",
-      "target_group_id": "goals_management",
-      "target_group_title": "Goals Management",
-      "type": "depends_on"
-    },
-    {
       "source_action_id": "sdlc_process_management__define_and_maintain_sdlc_framework",
       "source_action_name": "Define and maintain SDLC framework",
       "source_group_id": "sdlc_process_management",
@@ -2950,17 +2918,6 @@
       "target_action_name": "Approve major process changes",
       "target_group_id": "sdlc_process_management",
       "target_group_title": "SDLC & Process Management",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "sdlc_process_management__define_delivery_metrics_kpis",
-      "source_action_name": "Define delivery metrics/KPIs",
-      "source_group_id": "sdlc_process_management",
-      "source_group_title": "SDLC & Process Management",
-      "target_action_id": "goals_management__track_goal_progress",
-      "target_action_name": "Track goal progress",
-      "target_group_id": "goals_management",
-      "target_group_title": "Goals Management",
       "type": "depends_on"
     },
     {
@@ -3037,24 +2994,36 @@
         "role_name": "Delivery Manager",
         "aliases": [],
         "counts": {
-          "A": 21,
-          "C": 22,
-          "I": 8,
-          "R": 25
+          "A": 16,
+          "C": 19,
+          "I": 9,
+          "R": 22
         },
-        "total_assignments": 76
+        "total_assignments": 66
       },
       {
         "role_id": "team_lead",
         "role_name": "Team lead",
         "aliases": [],
         "counts": {
-          "A": 17,
-          "C": 31,
+          "A": 16,
+          "C": 29,
           "I": 1,
-          "R": 22
+          "R": 20
         },
-        "total_assignments": 71
+        "total_assignments": 66
+      },
+      {
+        "role_id": "senior_team_lead",
+        "role_name": "Senior Team Lead",
+        "aliases": [],
+        "counts": {
+          "A": 5,
+          "C": 8,
+          "I": 37,
+          "R": 0
+        },
+        "total_assignments": 50
       },
       {
         "role_id": "tech_lead",
@@ -3074,23 +3043,11 @@
         "aliases": [],
         "counts": {
           "A": 5,
-          "C": 11,
+          "C": 13,
           "I": 28,
-          "R": 0
+          "R": 1
         },
-        "total_assignments": 44
-      },
-      {
-        "role_id": "senior_team_lead",
-        "role_name": "Senior Team Lead",
-        "aliases": [],
-        "counts": {
-          "A": 4,
-          "C": 4,
-          "I": 32,
-          "R": 0
-        },
-        "total_assignments": 40
+        "total_assignments": 47
       },
       {
         "role_id": "pre",
@@ -3111,10 +3068,22 @@
         "counts": {
           "A": 0,
           "C": 3,
-          "I": 5,
+          "I": 6,
           "R": 0
         },
-        "total_assignments": 8
+        "total_assignments": 9
+      },
+      {
+        "role_id": "lead_dm",
+        "role_name": "Lead DM",
+        "aliases": [],
+        "counts": {
+          "A": 1,
+          "C": 5,
+          "I": 1,
+          "R": 0
+        },
+        "total_assignments": 7
       }
     ],
     "overloaded_roles": [
@@ -3123,24 +3092,24 @@
         "role_name": "Delivery Manager",
         "aliases": [],
         "counts": {
-          "A": 21,
-          "C": 22,
-          "I": 8,
-          "R": 25
+          "A": 16,
+          "C": 19,
+          "I": 9,
+          "R": 22
         },
-        "total_assignments": 76
+        "total_assignments": 66
       },
       {
         "role_id": "team_lead",
         "role_name": "Team lead",
         "aliases": [],
         "counts": {
-          "A": 17,
-          "C": 31,
+          "A": 16,
+          "C": 29,
           "I": 1,
-          "R": 22
+          "R": 20
         },
-        "total_assignments": 71
+        "total_assignments": 66
       },
       {
         "role_id": "pre",
@@ -3157,16 +3126,6 @@
     ],
     "action_warnings": [],
     "group_summary": {
-      "goals_management": {
-        "title": "Goals Management",
-        "action_count": 4,
-        "edge_distribution": {
-          "R": 4,
-          "A": 4,
-          "I": 4,
-          "C": 4
-        }
-      },
       "performance_management": {
         "title": "Performance Management",
         "action_count": 4,
@@ -3181,39 +3140,29 @@
         "action_count": 7,
         "edge_distribution": {
           "R": 7,
+          "C": 19,
           "I": 14,
-          "A": 7,
-          "C": 13
+          "A": 7
         }
       },
       "discovery_stage": {
         "title": "Discovery Stage",
-        "action_count": 8,
+        "action_count": 9,
         "edge_distribution": {
-          "I": 16,
-          "R": 8,
-          "A": 8,
-          "C": 16
+          "I": 18,
+          "R": 9,
+          "A": 9,
+          "C": 23
         }
       },
       "delivery_stage_planning_execution": {
         "title": "Delivery Stage - Planning & Execution",
         "action_count": 13,
         "edge_distribution": {
-          "C": 25,
+          "C": 26,
+          "I": 26,
           "R": 13,
-          "A": 13,
-          "I": 18
-        }
-      },
-      "quality_risk_management": {
-        "title": "Quality & Risk Management",
-        "action_count": 4,
-        "edge_distribution": {
-          "R": 4,
-          "I": 5,
-          "A": 4,
-          "C": 10
+          "A": 13
         }
       },
       "release_deployment": {
@@ -3223,7 +3172,7 @@
           "R": 8,
           "A": 8,
           "C": 21,
-          "I": 16
+          "I": 18
         }
       },
       "platform_support_incidents": {
@@ -3235,20 +3184,24 @@
           "C": 15,
           "I": 13
         }
+      },
+      "quality_risk_management": {
+        "title": "Quality & Risk Management",
+        "action_count": 3,
+        "edge_distribution": {
+          "R": 3,
+          "I": 5,
+          "A": 3,
+          "C": 6
+        }
       }
     },
     "dependency_summary": {
-      "total": 72,
+      "total": 67,
       "counts_by_type": {
-        "depends_on": 72
+        "depends_on": 67
       }
     },
-    "dependency_warnings": [
-      {
-        "source_action_id": "delivery_stage_planning_execution__sprint_execution",
-        "source_action_name": "Sprint execution",
-        "issue": "Dependency target not found: Delivery Stage - Planning & Execution :: Story sizing and estimation"
-      }
-    ]
+    "dependency_warnings": []
   }
 }
