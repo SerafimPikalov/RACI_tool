@@ -38,9 +38,14 @@
   ],
   "activity_groups": [
     {
-      "id": "goals_performance",
-      "title": "Goals & Performance",
+      "id": "goals_management",
+      "title": "Goals Management",
       "description": "Anchor the portfolio with clear objectives and KPIs before defining how teams work."
+    },
+    {
+      "id": "performance_management",
+      "title": "Performance Management",
+      "description": "Manage individual performance reviews and team member development."
     },
     {
       "id": "sdlc_process_management",
@@ -75,39 +80,51 @@
   ],
   "actions": [
     {
-      "id": "goals_performance__define_goal_setting_framework",
+      "id": "goals_management__define_goal_setting_framework",
       "name": "Define goal-setting framework",
-      "group_id": "goals_performance",
+      "group_id": "goals_management",
       "details": null
     },
     {
-      "id": "goals_performance__set_team_level_goals",
+      "id": "goals_management__set_team_level_goals",
       "name": "Set team-level goals",
-      "group_id": "goals_performance",
+      "group_id": "goals_management",
       "details": null
     },
     {
-      "id": "goals_performance__track_goal_progress",
+      "id": "goals_management__track_goal_progress",
       "name": "Track goal progress",
-      "group_id": "goals_performance",
+      "group_id": "goals_management",
       "details": null
     },
     {
-      "id": "goals_performance__align_team_goals_to_company_objectives",
+      "id": "goals_management__align_team_goals_to_company_objectives",
       "name": "Align team goals to company objectives",
-      "group_id": "goals_performance",
+      "group_id": "goals_management",
       "details": null
     },
     {
-      "id": "goals_performance__define_performance_review_framework",
+      "id": "performance_management__define_performance_review_framework",
       "name": "Define performance review framework",
-      "group_id": "goals_performance",
+      "group_id": "performance_management",
       "details": null
     },
     {
-      "id": "goals_performance__conduct_individual_performance_reviews",
+      "id": "performance_management__conduct_individual_performance_reviews",
       "name": "Conduct individual performance reviews",
-      "group_id": "goals_performance",
+      "group_id": "performance_management",
+      "details": null
+    },
+    {
+      "id": "performance_management__prepare_annual_performance_reviews",
+      "name": "Prepare annual performance reviews",
+      "group_id": "performance_management",
+      "details": null
+    },
+    {
+      "id": "performance_management__team_members_personal_development",
+      "name": "Team members personal development",
+      "group_id": "performance_management",
       "details": null
     },
     {
@@ -189,6 +206,18 @@
       "details": null
     },
     {
+      "id": "discovery_stage__validate_business_value",
+      "name": "Validate business value",
+      "group_id": "discovery_stage",
+      "details": null
+    },
+    {
+      "id": "discovery_stage__prepare_implementation_ready_requirements",
+      "name": "Prepare implementation-ready requirements",
+      "group_id": "discovery_stage",
+      "details": null
+    },
+    {
       "id": "delivery_stage_planning_execution__sprint_iteration_planning",
       "name": "Sprint/iteration planning",
       "group_id": "delivery_stage_planning_execution",
@@ -207,8 +236,8 @@
       "details": null
     },
     {
-      "id": "delivery_stage_planning_execution__story_sizing_and_estimation",
-      "name": "Story sizing and estimation",
+      "id": "delivery_stage_planning_execution__tasks_sizing_and_estimation",
+      "name": "Tasks sizing and estimation",
       "group_id": "delivery_stage_planning_execution",
       "details": null
     },
@@ -251,6 +280,18 @@
     {
       "id": "delivery_stage_planning_execution__facilitate_feature_retrospectives",
       "name": "Facilitate feature retrospectives",
+      "group_id": "delivery_stage_planning_execution",
+      "details": null
+    },
+    {
+      "id": "delivery_stage_planning_execution__backlog_refinement",
+      "name": "Backlog refinement",
+      "group_id": "delivery_stage_planning_execution",
+      "details": null
+    },
+    {
+      "id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "name": "Drive team process improvement",
       "group_id": "delivery_stage_planning_execution",
       "details": null
     },
@@ -365,142 +406,190 @@
   ],
   "relationships": [
     {
-      "action_id": "goals_performance__define_goal_setting_framework",
+      "action_id": "goals_management__define_goal_setting_framework",
       "role_id": "delivery_manager",
       "raci": "R",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__define_goal_setting_framework",
+      "action_id": "goals_management__define_goal_setting_framework",
       "role_id": "delivery_manager",
       "raci": "A",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__define_goal_setting_framework",
+      "action_id": "goals_management__define_goal_setting_framework",
       "role_id": "senior_team_lead",
       "raci": "I",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__define_goal_setting_framework",
+      "action_id": "goals_management__define_goal_setting_framework",
       "role_id": "team_lead",
       "raci": "C",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__set_team_level_goals",
+      "action_id": "goals_management__set_team_level_goals",
       "role_id": "delivery_manager",
       "raci": "C",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__set_team_level_goals",
+      "action_id": "goals_management__set_team_level_goals",
       "role_id": "senior_team_lead",
       "raci": "I",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__set_team_level_goals",
+      "action_id": "goals_management__set_team_level_goals",
       "role_id": "team_lead",
       "raci": "R",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__set_team_level_goals",
+      "action_id": "goals_management__set_team_level_goals",
       "role_id": "team_lead",
       "raci": "A",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__track_goal_progress",
+      "action_id": "goals_management__track_goal_progress",
       "role_id": "delivery_manager",
       "raci": "C",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__track_goal_progress",
+      "action_id": "goals_management__track_goal_progress",
       "role_id": "senior_team_lead",
       "raci": "I",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__track_goal_progress",
+      "action_id": "goals_management__track_goal_progress",
       "role_id": "team_lead",
       "raci": "R",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__track_goal_progress",
+      "action_id": "goals_management__track_goal_progress",
       "role_id": "team_lead",
       "raci": "A",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__align_team_goals_to_company_objectives",
+      "action_id": "goals_management__align_team_goals_to_company_objectives",
       "role_id": "delivery_manager",
       "raci": "R",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__align_team_goals_to_company_objectives",
+      "action_id": "goals_management__align_team_goals_to_company_objectives",
       "role_id": "delivery_manager",
       "raci": "A",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__align_team_goals_to_company_objectives",
+      "action_id": "goals_management__align_team_goals_to_company_objectives",
       "role_id": "senior_team_lead",
       "raci": "I",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__align_team_goals_to_company_objectives",
+      "action_id": "goals_management__align_team_goals_to_company_objectives",
       "role_id": "team_lead",
       "raci": "C",
-      "group_id": "goals_performance"
+      "group_id": "goals_management"
     },
     {
-      "action_id": "goals_performance__define_performance_review_framework",
+      "action_id": "performance_management__define_performance_review_framework",
       "role_id": "delivery_manager",
       "raci": "R",
-      "group_id": "goals_performance"
+      "group_id": "performance_management"
     },
     {
-      "action_id": "goals_performance__define_performance_review_framework",
+      "action_id": "performance_management__define_performance_review_framework",
       "role_id": "senior_team_lead",
       "raci": "A",
-      "group_id": "goals_performance"
+      "group_id": "performance_management"
     },
     {
-      "action_id": "goals_performance__define_performance_review_framework",
+      "action_id": "performance_management__define_performance_review_framework",
       "role_id": "team_lead",
       "raci": "C",
-      "group_id": "goals_performance"
+      "group_id": "performance_management"
     },
     {
-      "action_id": "goals_performance__conduct_individual_performance_reviews",
+      "action_id": "performance_management__conduct_individual_performance_reviews",
       "role_id": "delivery_manager",
       "raci": "C",
-      "group_id": "goals_performance"
+      "group_id": "performance_management"
     },
     {
-      "action_id": "goals_performance__conduct_individual_performance_reviews",
+      "action_id": "performance_management__conduct_individual_performance_reviews",
       "role_id": "senior_team_lead",
       "raci": "C",
-      "group_id": "goals_performance"
+      "group_id": "performance_management"
     },
     {
-      "action_id": "goals_performance__conduct_individual_performance_reviews",
+      "action_id": "performance_management__conduct_individual_performance_reviews",
       "role_id": "team_lead",
       "raci": "R",
-      "group_id": "goals_performance"
+      "group_id": "performance_management"
     },
     {
-      "action_id": "goals_performance__conduct_individual_performance_reviews",
+      "action_id": "performance_management__conduct_individual_performance_reviews",
       "role_id": "team_lead",
       "raci": "A",
-      "group_id": "goals_performance"
+      "group_id": "performance_management"
+    },
+    {
+      "action_id": "performance_management__prepare_annual_performance_reviews",
+      "role_id": "delivery_manager",
+      "raci": "C",
+      "group_id": "performance_management"
+    },
+    {
+      "action_id": "performance_management__prepare_annual_performance_reviews",
+      "role_id": "senior_team_lead",
+      "raci": "C",
+      "group_id": "performance_management"
+    },
+    {
+      "action_id": "performance_management__prepare_annual_performance_reviews",
+      "role_id": "team_lead",
+      "raci": "R",
+      "group_id": "performance_management"
+    },
+    {
+      "action_id": "performance_management__prepare_annual_performance_reviews",
+      "role_id": "team_lead",
+      "raci": "A",
+      "group_id": "performance_management"
+    },
+    {
+      "action_id": "performance_management__team_members_personal_development",
+      "role_id": "delivery_manager",
+      "raci": "C",
+      "group_id": "performance_management"
+    },
+    {
+      "action_id": "performance_management__team_members_personal_development",
+      "role_id": "senior_team_lead",
+      "raci": "C",
+      "group_id": "performance_management"
+    },
+    {
+      "action_id": "performance_management__team_members_personal_development",
+      "role_id": "team_lead",
+      "raci": "R",
+      "group_id": "performance_management"
+    },
+    {
+      "action_id": "performance_management__team_members_personal_development",
+      "role_id": "team_lead",
+      "raci": "A",
+      "group_id": "performance_management"
     },
     {
       "action_id": "sdlc_process_management__approve_major_process_changes",
@@ -965,6 +1054,78 @@
       "group_id": "discovery_stage"
     },
     {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "customer",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "delivery_manager",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "product_owner",
+      "raci": "A",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "team_lead",
+      "raci": "R",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__validate_business_value",
+      "role_id": "tech_lead",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "customer",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "delivery_manager",
+      "raci": "C",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "product_owner",
+      "raci": "A",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "team_lead",
+      "raci": "R",
+      "group_id": "discovery_stage"
+    },
+    {
+      "action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "role_id": "tech_lead",
+      "raci": "I",
+      "group_id": "discovery_stage"
+    },
+    {
       "action_id": "delivery_stage_planning_execution__sprint_iteration_planning",
       "role_id": "delivery_manager",
       "raci": "C",
@@ -1061,37 +1222,37 @@
       "group_id": "delivery_stage_planning_execution"
     },
     {
-      "action_id": "delivery_stage_planning_execution__story_sizing_and_estimation",
+      "action_id": "delivery_stage_planning_execution__tasks_sizing_and_estimation",
       "role_id": "delivery_manager",
       "raci": "C",
       "group_id": "delivery_stage_planning_execution"
     },
     {
-      "action_id": "delivery_stage_planning_execution__story_sizing_and_estimation",
+      "action_id": "delivery_stage_planning_execution__tasks_sizing_and_estimation",
       "role_id": "product_owner",
       "raci": "I",
       "group_id": "delivery_stage_planning_execution"
     },
     {
-      "action_id": "delivery_stage_planning_execution__story_sizing_and_estimation",
+      "action_id": "delivery_stage_planning_execution__tasks_sizing_and_estimation",
       "role_id": "senior_team_lead",
       "raci": "I",
       "group_id": "delivery_stage_planning_execution"
     },
     {
-      "action_id": "delivery_stage_planning_execution__story_sizing_and_estimation",
+      "action_id": "delivery_stage_planning_execution__tasks_sizing_and_estimation",
       "role_id": "team_lead",
       "raci": "R",
       "group_id": "delivery_stage_planning_execution"
     },
     {
-      "action_id": "delivery_stage_planning_execution__story_sizing_and_estimation",
+      "action_id": "delivery_stage_planning_execution__tasks_sizing_and_estimation",
       "role_id": "team_lead",
       "raci": "A",
       "group_id": "delivery_stage_planning_execution"
     },
     {
-      "action_id": "delivery_stage_planning_execution__story_sizing_and_estimation",
+      "action_id": "delivery_stage_planning_execution__tasks_sizing_and_estimation",
       "role_id": "tech_lead",
       "raci": "C",
       "group_id": "delivery_stage_planning_execution"
@@ -1310,6 +1471,72 @@
       "action_id": "delivery_stage_planning_execution__facilitate_feature_retrospectives",
       "role_id": "tech_lead",
       "raci": "C",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "delivery_manager",
+      "raci": "C",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "product_owner",
+      "raci": "C",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "team_lead",
+      "raci": "R",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "team_lead",
+      "raci": "A",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "role_id": "tech_lead",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "delivery_manager",
+      "raci": "C",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "product_owner",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "senior_team_lead",
+      "raci": "I",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "team_lead",
+      "raci": "R",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "team_lead",
+      "raci": "A",
+      "group_id": "delivery_stage_planning_execution"
+    },
+    {
+      "action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "role_id": "tech_lead",
+      "raci": "I",
       "group_id": "delivery_stage_planning_execution"
     },
     {
@@ -2022,6 +2249,17 @@
       "type": "depends_on"
     },
     {
+      "source_action_id": "delivery_stage_planning_execution__backlog_refinement",
+      "source_action_name": "Backlog refinement",
+      "source_group_id": "delivery_stage_planning_execution",
+      "source_group_title": "Delivery Stage - Planning & Execution",
+      "target_action_id": "delivery_stage_planning_execution__sprint_iteration_planning",
+      "target_action_name": "Sprint/iteration planning",
+      "target_group_id": "delivery_stage_planning_execution",
+      "target_group_title": "Delivery Stage - Planning & Execution",
+      "type": "depends_on"
+    },
+    {
       "source_action_id": "delivery_stage_planning_execution__cross_team_priority_conflicts",
       "source_action_name": "Cross-team priority conflicts",
       "source_group_id": "delivery_stage_planning_execution",
@@ -2050,6 +2288,17 @@
       "source_group_title": "Delivery Stage - Planning & Execution",
       "target_action_id": "delivery_stage_planning_execution__sprint_execution",
       "target_action_name": "Sprint execution",
+      "target_group_id": "delivery_stage_planning_execution",
+      "target_group_title": "Delivery Stage - Planning & Execution",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "delivery_stage_planning_execution__drive_team_process_improvement",
+      "source_action_name": "Drive team process improvement",
+      "source_group_id": "delivery_stage_planning_execution",
+      "source_group_title": "Delivery Stage - Planning & Execution",
+      "target_action_id": "delivery_stage_planning_execution__facilitate_team_retrospectives",
+      "target_action_name": "Facilitate team retrospectives",
       "target_group_id": "delivery_stage_planning_execution",
       "target_group_title": "Delivery Stage - Planning & Execution",
       "type": "depends_on"
@@ -2132,17 +2381,6 @@
       "type": "depends_on"
     },
     {
-      "source_action_id": "delivery_stage_planning_execution__sprint_execution",
-      "source_action_name": "Sprint execution",
-      "source_group_id": "delivery_stage_planning_execution",
-      "source_group_title": "Delivery Stage - Planning & Execution",
-      "target_action_id": "delivery_stage_planning_execution__story_sizing_and_estimation",
-      "target_action_name": "Story sizing and estimation",
-      "target_group_id": "delivery_stage_planning_execution",
-      "target_group_title": "Delivery Stage - Planning & Execution",
-      "type": "depends_on"
-    },
-    {
       "source_action_id": "delivery_stage_planning_execution__sprint_iteration_planning",
       "source_action_name": "Sprint/iteration planning",
       "source_group_id": "delivery_stage_planning_execution",
@@ -2165,8 +2403,8 @@
       "type": "depends_on"
     },
     {
-      "source_action_id": "delivery_stage_planning_execution__story_sizing_and_estimation",
-      "source_action_name": "Story sizing and estimation",
+      "source_action_id": "delivery_stage_planning_execution__tasks_sizing_and_estimation",
+      "source_action_name": "Tasks sizing and estimation",
       "source_group_id": "delivery_stage_planning_execution",
       "source_group_title": "Delivery Stage - Planning & Execution",
       "target_action_id": "discovery_stage__validate_requirements_are_implementation_ready",
@@ -2209,6 +2447,17 @@
       "type": "depends_on"
     },
     {
+      "source_action_id": "discovery_stage__prepare_implementation_ready_requirements",
+      "source_action_name": "Prepare implementation-ready requirements",
+      "source_group_id": "discovery_stage",
+      "source_group_title": "Discovery Stage",
+      "target_action_id": "discovery_stage__run_simple_feature_discovery_sessions",
+      "target_action_name": "Run simple feature discovery sessions",
+      "target_group_id": "discovery_stage",
+      "target_group_title": "Discovery Stage",
+      "type": "depends_on"
+    },
+    {
       "source_action_id": "discovery_stage__run_complex_cross_team_discovery",
       "source_action_name": "Run complex/cross-team discovery",
       "source_group_id": "discovery_stage",
@@ -2226,6 +2475,17 @@
       "source_group_title": "Discovery Stage",
       "target_action_id": "discovery_stage__define_discovery_framework",
       "target_action_name": "Define discovery framework",
+      "target_group_id": "discovery_stage",
+      "target_group_title": "Discovery Stage",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "discovery_stage__validate_business_value",
+      "source_action_name": "Validate business value",
+      "source_group_id": "discovery_stage",
+      "source_group_title": "Discovery Stage",
+      "target_action_id": "discovery_stage__run_simple_feature_discovery_sessions",
+      "target_action_name": "Run simple feature discovery sessions",
       "target_group_id": "discovery_stage",
       "target_group_title": "Discovery Stage",
       "type": "depends_on"
@@ -2253,69 +2513,91 @@
       "type": "depends_on"
     },
     {
-      "source_action_id": "goals_performance__align_team_goals_to_company_objectives",
+      "source_action_id": "goals_management__align_team_goals_to_company_objectives",
       "source_action_name": "Align team goals to company objectives",
-      "source_group_id": "goals_performance",
-      "source_group_title": "Goals & Performance",
-      "target_action_id": "goals_performance__define_goal_setting_framework",
+      "source_group_id": "goals_management",
+      "source_group_title": "Goals Management",
+      "target_action_id": "goals_management__define_goal_setting_framework",
       "target_action_name": "Define goal-setting framework",
-      "target_group_id": "goals_performance",
-      "target_group_title": "Goals & Performance",
+      "target_group_id": "goals_management",
+      "target_group_title": "Goals Management",
       "type": "depends_on"
     },
     {
-      "source_action_id": "goals_performance__align_team_goals_to_company_objectives",
+      "source_action_id": "goals_management__align_team_goals_to_company_objectives",
       "source_action_name": "Align team goals to company objectives",
-      "source_group_id": "goals_performance",
-      "source_group_title": "Goals & Performance",
-      "target_action_id": "goals_performance__set_team_level_goals",
+      "source_group_id": "goals_management",
+      "source_group_title": "Goals Management",
+      "target_action_id": "goals_management__set_team_level_goals",
       "target_action_name": "Set team-level goals",
-      "target_group_id": "goals_performance",
-      "target_group_title": "Goals & Performance",
+      "target_group_id": "goals_management",
+      "target_group_title": "Goals Management",
       "type": "depends_on"
     },
     {
-      "source_action_id": "goals_performance__conduct_individual_performance_reviews",
-      "source_action_name": "Conduct individual performance reviews",
-      "source_group_id": "goals_performance",
-      "source_group_title": "Goals & Performance",
-      "target_action_id": "goals_performance__define_performance_review_framework",
-      "target_action_name": "Define performance review framework",
-      "target_group_id": "goals_performance",
-      "target_group_title": "Goals & Performance",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "goals_performance__define_performance_review_framework",
-      "source_action_name": "Define performance review framework",
-      "source_group_id": "goals_performance",
-      "source_group_title": "Goals & Performance",
-      "target_action_id": "goals_performance__define_goal_setting_framework",
-      "target_action_name": "Define goal-setting framework",
-      "target_group_id": "goals_performance",
-      "target_group_title": "Goals & Performance",
-      "type": "depends_on"
-    },
-    {
-      "source_action_id": "goals_performance__set_team_level_goals",
+      "source_action_id": "goals_management__set_team_level_goals",
       "source_action_name": "Set team-level goals",
-      "source_group_id": "goals_performance",
-      "source_group_title": "Goals & Performance",
-      "target_action_id": "goals_performance__define_goal_setting_framework",
+      "source_group_id": "goals_management",
+      "source_group_title": "Goals Management",
+      "target_action_id": "goals_management__define_goal_setting_framework",
       "target_action_name": "Define goal-setting framework",
-      "target_group_id": "goals_performance",
-      "target_group_title": "Goals & Performance",
+      "target_group_id": "goals_management",
+      "target_group_title": "Goals Management",
       "type": "depends_on"
     },
     {
-      "source_action_id": "goals_performance__track_goal_progress",
+      "source_action_id": "goals_management__track_goal_progress",
       "source_action_name": "Track goal progress",
-      "source_group_id": "goals_performance",
-      "source_group_title": "Goals & Performance",
-      "target_action_id": "goals_performance__set_team_level_goals",
+      "source_group_id": "goals_management",
+      "source_group_title": "Goals Management",
+      "target_action_id": "goals_management__set_team_level_goals",
       "target_action_name": "Set team-level goals",
-      "target_group_id": "goals_performance",
-      "target_group_title": "Goals & Performance",
+      "target_group_id": "goals_management",
+      "target_group_title": "Goals Management",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "performance_management__conduct_individual_performance_reviews",
+      "source_action_name": "Conduct individual performance reviews",
+      "source_group_id": "performance_management",
+      "source_group_title": "Performance Management",
+      "target_action_id": "performance_management__define_performance_review_framework",
+      "target_action_name": "Define performance review framework",
+      "target_group_id": "performance_management",
+      "target_group_title": "Performance Management",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "performance_management__define_performance_review_framework",
+      "source_action_name": "Define performance review framework",
+      "source_group_id": "performance_management",
+      "source_group_title": "Performance Management",
+      "target_action_id": "goals_management__define_goal_setting_framework",
+      "target_action_name": "Define goal-setting framework",
+      "target_group_id": "goals_management",
+      "target_group_title": "Goals Management",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "performance_management__prepare_annual_performance_reviews",
+      "source_action_name": "Prepare annual performance reviews",
+      "source_group_id": "performance_management",
+      "source_group_title": "Performance Management",
+      "target_action_id": "performance_management__define_performance_review_framework",
+      "target_action_name": "Define performance review framework",
+      "target_group_id": "performance_management",
+      "target_group_title": "Performance Management",
+      "type": "depends_on"
+    },
+    {
+      "source_action_id": "performance_management__team_members_personal_development",
+      "source_action_name": "Team members personal development",
+      "source_group_id": "performance_management",
+      "source_group_title": "Performance Management",
+      "target_action_id": "performance_management__define_performance_review_framework",
+      "target_action_name": "Define performance review framework",
+      "target_group_id": "performance_management",
+      "target_group_title": "Performance Management",
       "type": "depends_on"
     },
     {
@@ -2653,10 +2935,10 @@
       "source_action_name": "Approve major process changes",
       "source_group_id": "sdlc_process_management",
       "source_group_title": "SDLC & Process Management",
-      "target_action_id": "goals_performance__align_team_goals_to_company_objectives",
+      "target_action_id": "goals_management__align_team_goals_to_company_objectives",
       "target_action_name": "Align team goals to company objectives",
-      "target_group_id": "goals_performance",
-      "target_group_title": "Goals & Performance",
+      "target_group_id": "goals_management",
+      "target_group_title": "Goals Management",
       "type": "depends_on"
     },
     {
@@ -2675,10 +2957,10 @@
       "source_action_name": "Define delivery metrics/KPIs",
       "source_group_id": "sdlc_process_management",
       "source_group_title": "SDLC & Process Management",
-      "target_action_id": "goals_performance__track_goal_progress",
+      "target_action_id": "goals_management__track_goal_progress",
       "target_action_name": "Track goal progress",
-      "target_group_id": "goals_performance",
-      "target_group_title": "Goals & Performance",
+      "target_group_id": "goals_management",
+      "target_group_title": "Goals Management",
       "type": "depends_on"
     },
     {
@@ -2756,23 +3038,23 @@
         "aliases": [],
         "counts": {
           "A": 21,
-          "C": 17,
-          "I": 7,
+          "C": 22,
+          "I": 8,
           "R": 25
         },
-        "total_assignments": 70
+        "total_assignments": 76
       },
       {
         "role_id": "team_lead",
         "role_name": "Team lead",
         "aliases": [],
         "counts": {
-          "A": 13,
+          "A": 17,
           "C": 31,
           "I": 1,
-          "R": 16
+          "R": 22
         },
-        "total_assignments": 61
+        "total_assignments": 71
       },
       {
         "role_id": "tech_lead",
@@ -2780,23 +3062,23 @@
         "aliases": [],
         "counts": {
           "A": 3,
-          "C": 32,
-          "I": 7,
+          "C": 33,
+          "I": 10,
           "R": 3
         },
-        "total_assignments": 45
+        "total_assignments": 49
       },
       {
         "role_id": "product_owner",
         "role_name": "Product Owner",
         "aliases": [],
         "counts": {
-          "A": 3,
-          "C": 10,
-          "I": 27,
+          "A": 5,
+          "C": 11,
+          "I": 28,
           "R": 0
         },
-        "total_assignments": 40
+        "total_assignments": 44
       },
       {
         "role_id": "senior_team_lead",
@@ -2804,11 +3086,11 @@
         "aliases": [],
         "counts": {
           "A": 4,
-          "C": 2,
-          "I": 29,
+          "C": 4,
+          "I": 32,
           "R": 0
         },
-        "total_assignments": 35
+        "total_assignments": 40
       },
       {
         "role_id": "pre",
@@ -2828,11 +3110,11 @@
         "aliases": [],
         "counts": {
           "A": 0,
-          "C": 2,
-          "I": 4,
+          "C": 3,
+          "I": 5,
           "R": 0
         },
-        "total_assignments": 6
+        "total_assignments": 8
       }
     ],
     "overloaded_roles": [
@@ -2842,23 +3124,23 @@
         "aliases": [],
         "counts": {
           "A": 21,
-          "C": 17,
-          "I": 7,
+          "C": 22,
+          "I": 8,
           "R": 25
         },
-        "total_assignments": 70
+        "total_assignments": 76
       },
       {
         "role_id": "team_lead",
         "role_name": "Team lead",
         "aliases": [],
         "counts": {
-          "A": 13,
+          "A": 17,
           "C": 31,
           "I": 1,
-          "R": 16
+          "R": 22
         },
-        "total_assignments": 61
+        "total_assignments": 71
       },
       {
         "role_id": "pre",
@@ -2875,13 +3157,22 @@
     ],
     "action_warnings": [],
     "group_summary": {
-      "goals_performance": {
-        "title": "Goals & Performance",
-        "action_count": 6,
+      "goals_management": {
+        "title": "Goals Management",
+        "action_count": 4,
         "edge_distribution": {
-          "R": 6,
-          "A": 6,
+          "R": 4,
+          "A": 4,
           "I": 4,
+          "C": 4
+        }
+      },
+      "performance_management": {
+        "title": "Performance Management",
+        "action_count": 4,
+        "edge_distribution": {
+          "R": 4,
+          "A": 4,
           "C": 7
         }
       },
@@ -2897,22 +3188,22 @@
       },
       "discovery_stage": {
         "title": "Discovery Stage",
-        "action_count": 6,
+        "action_count": 8,
         "edge_distribution": {
-          "I": 11,
-          "R": 6,
-          "A": 6,
-          "C": 13
+          "I": 16,
+          "R": 8,
+          "A": 8,
+          "C": 16
         }
       },
       "delivery_stage_planning_execution": {
         "title": "Delivery Stage - Planning & Execution",
-        "action_count": 11,
+        "action_count": 13,
         "edge_distribution": {
-          "C": 22,
-          "R": 11,
-          "A": 11,
-          "I": 14
+          "C": 25,
+          "R": 13,
+          "A": 13,
+          "I": 18
         }
       },
       "quality_risk_management": {
@@ -2947,11 +3238,17 @@
       }
     },
     "dependency_summary": {
-      "total": 67,
+      "total": 72,
       "counts_by_type": {
-        "depends_on": 67
+        "depends_on": 72
       }
     },
-    "dependency_warnings": []
+    "dependency_warnings": [
+      {
+        "source_action_id": "delivery_stage_planning_execution__sprint_execution",
+        "source_action_name": "Sprint execution",
+        "issue": "Dependency target not found: Delivery Stage - Planning & Execution :: Story sizing and estimation"
+      }
+    ]
   }
 }

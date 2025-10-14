@@ -11,4 +11,4 @@
 **Progress so far**
 - Extracted the Confluence HTML payload from `RACI_Platform.doc` and parsed all RACI tables into a canonical YAML (`data/raci.yaml`), ordered by lifecycle and annotated with group intent.
 - Produced enriched JSON/CSV exports plus a Sankey prototype showing lifecycle-to-role responsibilities.
-- Drafted activity dependency schema requirements in `docs/activity_analysis.md` and updated the visualization plan for the upcoming activity network view.
+- Drafted activity dependency schema requirements in `docs/activity_analysis.md` and updated the visualization plan for dependency, matrix, and dataset-management enhancements.

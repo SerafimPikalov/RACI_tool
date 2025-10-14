@@ -1,5 +1,5 @@
 activity_groups:
-- group_title: Goals & Performance
+- group_title: Goals Management
   roles:
   - Delivery Manager
   - Team lead
@@ -16,7 +16,7 @@ activity_groups:
       - I
   - name: Set team-level goals
     depends_on:
-    - group: Goals & Performance
+    - group: Goals Management
       activity: Define goal-setting framework
     assignments:
       Delivery Manager:
@@ -28,7 +28,7 @@ activity_groups:
       - I
   - name: Track goal progress
     depends_on:
-    - group: Goals & Performance
+    - group: Goals Management
       activity: Set team-level goals
     assignments:
       Delivery Manager:
@@ -40,9 +40,9 @@ activity_groups:
       - I
   - name: Align team goals to company objectives
     depends_on:
-    - group: Goals & Performance
+    - group: Goals Management
       activity: Define goal-setting framework
-    - group: Goals & Performance
+    - group: Goals Management
       activity: Set team-level goals
     assignments:
       Delivery Manager:
@@ -52,9 +52,16 @@ activity_groups:
       - C
       Senior Team Lead:
       - I
+  description: Anchor the portfolio with clear objectives and KPIs before defining how teams work.
+- group_title: Performance Management
+  roles:
+  - Delivery Manager
+  - Team lead
+  - Senior Team Lead
+  activities:
   - name: Define performance review framework
     depends_on:
-    - group: Goals & Performance
+    - group: Goals Management
       activity: Define goal-setting framework
     assignments:
       Delivery Manager:
@@ -65,7 +72,7 @@ activity_groups:
       - A
   - name: Conduct individual performance reviews
     depends_on:
-    - group: Goals & Performance
+    - group: Performance Management
       activity: Define performance review framework
     assignments:
       Delivery Manager:
@@ -75,8 +82,31 @@ activity_groups:
       - A
       Senior Team Lead:
       - C
-  description: Anchor the portfolio with clear objectives and KPIs before defining
-    how teams work.
+  - name: Prepare annual performance reviews
+    depends_on:
+    - group: Performance Management
+      activity: Define performance review framework
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Senior Team Lead:
+      - C
+  - name: Team members personal development
+    depends_on:
+    - group: Performance Management
+      activity: Define performance review framework
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Senior Team Lead:
+      - C
+  description: Manage individual performance reviews and team member development.
 - group_title: SDLC & Process Management
   roles:
   - Delivery Manager
@@ -87,7 +117,7 @@ activity_groups:
   activities:
   - name: Approve major process changes
     depends_on:
-    - group: Goals & Performance
+    - group: Goals Management
       activity: Align team goals to company objectives
     assignments:
       Delivery Manager:
@@ -151,7 +181,7 @@ activity_groups:
       - C
   - name: Define delivery metrics/KPIs
     depends_on:
-    - group: Goals & Performance
+    - group: Goals Management
       activity: Track goal progress
     - group: SDLC & Process Management
       activity: Define and maintain SDLC framework
@@ -313,6 +343,40 @@ activity_groups:
       - A
       Customer:
       - I
+  - name: Validate business value
+    depends_on:
+    - group: Discovery Stage
+      activity: Run simple feature discovery sessions
+    assignments:
+      Delivery Manager:
+      - I
+      Team lead:
+      - R
+      Product Owner:
+      - A
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - C
+      Customer:
+      - I
+  - name: Prepare implementation-ready requirements
+    depends_on:
+    - group: Discovery Stage
+      activity: Run simple feature discovery sessions
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      Product Owner:
+      - A
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - I
+      Customer:
+      - C
   description: Feed prioritized, well-understood work into delivery.
 - group_title: Delivery Stage - Planning & Execution
   roles:
@@ -370,7 +434,7 @@ activity_groups:
       - I
       Tech lead:
       - I
-  - name: Story sizing and estimation
+  - name: Tasks sizing and estimation
     depends_on:
     - group: Discovery Stage
       activity: Validate requirements are implementation-ready
@@ -490,6 +554,36 @@ activity_groups:
       - I
       Tech lead:
       - C
+  - name: Backlog refinement
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Sprint/iteration planning
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - C
+      Tech lead:
+      - I
+  - name: Drive team process improvement
+    depends_on:
+    - group: Delivery Stage - Planning & Execution
+      activity: Facilitate team retrospectives
+    assignments:
+      Delivery Manager:
+      - C
+      Team lead:
+      - R
+      - A
+      Product Owner:
+      - I
+      Senior Team Lead:
+      - I
+      Tech lead:
+      - I
   description: Execute against the pipeline that discovery creates.
 - group_title: Quality & Risk Management
   roles:

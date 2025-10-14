@@ -33,5 +33,5 @@
 1. Extend the YAML schema to capture activity relationships; update the enrichment script to emit a dependency graph dataset.
 2. Implement shared data loaders that normalize the JSON into graph structures (`nodes`, `links`, `dependencies`) consumed by D3 components.
 3. Enhance the Activity Dependency Graph (initial version live) with richer detail panes, cross-highlighting, and support for additional relationship types beyond `depends_on`.
-4. Finish integrating the Sankey diagram and workload charts with the shared filter state.
+4. Expand the responsibility matrix with additional insights (e.g., quick filters, export options).
 5. Generate scripted Mermaid/Graphviz exports for static reporting, using the same normalized data pipeline.

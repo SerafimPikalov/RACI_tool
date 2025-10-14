@@ -35,6 +35,65 @@
         margin-bottom: 1rem;
         color: #475569;
       }
+      .dataset-section {
+        margin-bottom: 2.5rem;
+        max-width: 1100px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        padding: 1.25rem 1.5rem;
+      }
+      .dataset-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: flex-end;
+        margin-bottom: 0.75rem;
+      }
+      .dataset-actions label {
+        font-size: 0.85rem;
+        color: #334155;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      .dataset-actions input[type="file"] {
+        font-size: 0.9rem;
+      }
+      .dataset-actions input[type="text"] {
+        padding: 0.35rem 0.5rem;
+        border: 1px solid #cbd5f5;
+        border-radius: 6px;
+        min-width: 160px;
+        font-size: 0.95rem;
+      }
+      .dataset-actions button {
+        padding: 0.45rem 0.85rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        background: #1d4ed8;
+        color: #fff;
+        box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+      }
+      .dataset-actions button.secondary {
+        background: #64748b;
+        box-shadow: 0 2px 6px rgba(100, 116, 139, 0.25);
+      }
+      .dataset-actions button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+      }
+      .dataset-actions button.secondary:hover {
+        box-shadow: 0 4px 10px rgba(100, 116, 139, 0.25);
+      }
+      .dataset-status {
+        font-size: 0.9rem;
+        color: #475569;
+      }
       .controls {
         display: flex;
         flex-wrap: wrap;
@@ -99,6 +158,10 @@
         margin-top: 3rem;
         max-width: 1300px;
       }
+      .matrix-section {
+        margin-top: 3rem;
+        max-width: 1300px;
+      }
       #dependency-graph {
         position: relative;
         width: 100%;
@@ -109,6 +172,131 @@
         padding: 1rem;
         overflow-x: auto;
         overflow-y: hidden;
+      }
+      .matrix-wrapper {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        padding: 1rem;
+        overflow-x: auto;
+      }
+      .matrix-table {
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 12px;
+        width: 100%;
+        min-width: 720px;
+      }
+      .matrix-table th,
+      .matrix-table td {
+        border: 1px solid #e2e8f0;
+        padding: 6px 10px;
+        text-align: center;
+        white-space: nowrap;
+      }
+      .matrix-table th {
+        background: #f1f5f9;
+        font-weight: 600;
+        color: #334155;
+      }
+      .matrix-table th.role-header.highlight {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+      .matrix-group-row th {
+        text-align: left;
+        background: #e2e8f0;
+        color: #1f2937;
+        font-size: 13px;
+      }
+      .matrix-action-cell {
+        text-align: left;
+        font-weight: 500;
+        max-width: 260px;
+        white-space: normal;
+      }
+      .matrix-row.highlight .matrix-action-cell {
+        color: #1d4ed8;
+      }
+      .matrix-row.dimmed .matrix-action-cell {
+        color: #94a3b8;
+      }
+      .matrix-cell {
+        min-width: 64px;
+        position: relative;
+        font-weight: 600;
+        color: #1f2937;
+        background: #ffffff;
+        transition: opacity 0.2s ease, box-shadow 0.2s ease;
+      }
+      .matrix-cell.highlight {
+        box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.7);
+        background: #eff6ff;
+      }
+      .matrix-cell.dimmed {
+        opacity: 0.3;
+      }
+      .matrix-cell.empty {
+        color: #94a3b8;
+        font-weight: 400;
+      }
+      .matrix-cell.editing {
+        box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.85);
+        background: #dbeafe;
+      }
+      .matrix-editor {
+        position: absolute;
+        z-index: 2000;
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem 0.9rem;
+        background: #fff;
+        border: 1px solid #cbd5f5;
+        border-radius: 10px;
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+        min-width: 160px;
+      }
+      .matrix-editor-options {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 0.5rem 1rem;
+      }
+      .matrix-editor-options label {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.85rem;
+        color: #1f2937;
+      }
+      .matrix-editor-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .matrix-editor button {
+        padding: 0.35rem 0.75rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        background: #1d4ed8;
+        color: #fff;
+        box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+      }
+      .matrix-editor button.secondary {
+        background: #64748b;
+        box-shadow: 0 2px 6px rgba(100, 116, 139, 0.25);
+      }
+      .matrix-editor button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+      }
+      .matrix-editor button.secondary:hover {
+        box-shadow: 0 4px 10px rgba(100, 116, 139, 0.25);
       }
       .graph-legend {
         display: flex;
@@ -157,6 +345,23 @@
       <h2>Action Warnings</h2>
       <ul id="warnings-list"></ul>
     </section>
+    <section class="dataset-section">
+      <h2>Dataset Management</h2>
+      <div class="dataset-actions">
+        <label>
+          Load RACI JSON
+          <input type="file" id="dataset-upload" accept=".json" />
+        </label>
+        <button type="button" class="secondary" id="dataset-reset">Reload default</button>
+        <label>
+          Download filename
+          <input type="text" id="dataset-filename" value="raci_matrix" />
+        </label>
+        <button type="button" id="download-matrix">Download matrix CSV</button>
+        <button type="button" id="download-json">Download data JSON</button>
+      </div>
+      <p class="dataset-status" id="dataset-status">Using default dataset.</p>
+    </section>
     <section class="controls">
       <label>
         Role filter
@@ -189,39 +394,39 @@
       <div id="dependency-legend" class="graph-legend"></div>
       <div id="dependency-graph"></div>
     </section>
+    <section class="matrix-section">
+      <h2>Responsibility Matrix</h2>
+      <div class="matrix-wrapper">
+        <table class="matrix-table" id="responsibility-matrix"></table>
+      </div>
+    </section>
 
     <script>
       const STATUS_COLORS = { R: "#f97316", A: "#ef4444", C: "#3b82f6", I: "#16a34a" };
       const NODE_COLORS = { action: "#8b5cf6", role: "#0ea5e9" };
+      const EDIT_LETTERS = ["R", "A", "C", "I"];
 
+      let originalData = null;
       let cachedData = null;
       let resizeTimeout = null;
       let actionAssignments = new Map();
       let dependencyTypes = [];
       let dependencyColorScale = null;
+      let datasetStatusEl = null;
+      let matrixEditor = null;
+      let matrixEditorState = null;
       const filters = { role: "all", raci: "all", dependencyType: "all" };
 
       async function init() {
         const statusEl = document.getElementById("status-banner");
         statusEl.textContent = "Loading data…";
         try {
-          const response = await fetch("../build/raci_enriched.json");
+          const response = await fetch(`../build/raci_enriched.json?t=${Date.now()}`);
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const data = await response.json();
-          cachedData = data;
-          actionAssignments = buildActionAssignments(data.relationships);
-          dependencyTypes = Array.from(new Set((data.activity_dependencies || []).map((d) => d.type))).sort();
-          dependencyColorScale = d3
-            .scaleOrdinal(dependencyTypes.length ? dependencyTypes : ["depends_on"], d3.schemeTableau10);
-          renderSummary(data);
-          renderWarnings(data.metrics.action_warnings || []);
-          populateRoleFilter(data.roles);
-          populateDependencyTypeFilter();
-          renderLegend();
-          renderDependencyLegend();
-          renderSankey(data);
-          renderDependencyGraph(data);
-          statusEl.textContent = `Loaded ${data.activity_groups.length} lifecycle groups • ${data.actions.length} actions`;
+          originalData = data;
+          setupDatasetControls();
+          applyData(data, { resetFilters: true, statusMessage: "Using default dataset." });
         } catch (error) {
           cachedData = null;
           document.getElementById("sankey-placeholder").textContent = "Unable to display Sankey.";
@@ -246,15 +451,45 @@
         return map;
       }
 
+      function normalizeData(data) {
+        const metricsRaw = data && typeof data.metrics === "object" && data.metrics ? data.metrics : {};
+        const activityGroups = data && Array.isArray(data.activity_groups) ? data.activity_groups : [];
+        const roles = data && Array.isArray(data.roles) ? data.roles : [];
+        const actions = data && Array.isArray(data.actions) ? data.actions : [];
+        const relationships = data && Array.isArray(data.relationships) ? data.relationships : [];
+        const dependencies = data && Array.isArray(data.activity_dependencies) ? data.activity_dependencies : [];
+        const metrics = {
+          ...metricsRaw,
+          role_summary: Array.isArray(metricsRaw.role_summary) ? metricsRaw.role_summary : [],
+          action_warnings: Array.isArray(metricsRaw.action_warnings) ? metricsRaw.action_warnings : [],
+          group_summary: metricsRaw.group_summary || {},
+          dependency_summary: metricsRaw.dependency_summary || {},
+          dependency_warnings: Array.isArray(metricsRaw.dependency_warnings)
+            ? metricsRaw.dependency_warnings
+            : [],
+        };
+
+        return {
+          ...data,
+          activity_groups: activityGroups,
+          roles,
+          actions,
+          relationships,
+          activity_dependencies: dependencies,
+          metrics,
+        };
+      }
+
       function renderSummary(data) {
         const container = d3.select("#summary");
         container.selectAll("*").remove();
 
-        const roles = data.metrics.role_summary || [];
-        const totalEdges = data.relationships.length;
+        const metrics = data.metrics || {};
+        const roles = metrics.role_summary || [];
+        const totalEdges = (data.relationships || []).length;
         const cards = [
-          { label: "Lifecycle groups", value: data.activity_groups.length },
-          { label: "Actions", value: data.actions.length },
+          { label: "Lifecycle groups", value: (data.activity_groups || []).length },
+          { label: "Actions", value: (data.actions || []).length },
           { label: "Relationships", value: totalEdges },
         ];
 
@@ -333,24 +568,32 @@
           });
 
         select.value = filters.role;
+        if (filters.role !== "all" && select.selectedIndex === -1) {
+          filters.role = "all";
+          select.value = filters.role;
+        }
 
-        select.addEventListener("change", (event) => {
-          filters.role = event.target.value || "all";
-          if (cachedData) {
-            renderSankey(cachedData);
-            renderDependencyGraph(cachedData);
-          }
-        });
+        if (!select.dataset.bound) {
+          select.addEventListener("change", (event) => {
+            filters.role = event.target.value || "all";
+            if (cachedData) {
+              redraw();
+            }
+          });
+          select.dataset.bound = "true";
+        }
 
         const raciSelect = document.getElementById("raci-filter");
         raciSelect.value = filters.raci;
-        raciSelect.addEventListener("change", (event) => {
-          filters.raci = event.target.value || "all";
-          if (cachedData) {
-            renderSankey(cachedData);
-            renderDependencyGraph(cachedData);
-          }
-        });
+        if (!raciSelect.dataset.bound) {
+          raciSelect.addEventListener("change", (event) => {
+            filters.raci = event.target.value || "all";
+            if (cachedData) {
+              redraw();
+            }
+          });
+          raciSelect.dataset.bound = "true";
+        }
       }
 
       function populateDependencyTypeFilter() {
@@ -368,13 +611,20 @@
         const types = dependencyTypes.length ? dependencyTypes : ["depends_on"];
         types.forEach((type) => addOption(type, type.replace(/_/g, " ")));
 
+        if (filters.dependencyType !== "all" && !types.includes(filters.dependencyType)) {
+          filters.dependencyType = "all";
+        }
         select.value = filters.dependencyType;
-        select.addEventListener("change", (event) => {
-          filters.dependencyType = event.target.value || "all";
-          if (cachedData) {
-            renderDependencyGraph(cachedData);
-          }
-        });
+
+        if (!select.dataset.bound) {
+          select.addEventListener("change", (event) => {
+            filters.dependencyType = event.target.value || "all";
+            if (cachedData) {
+              renderDependencyGraph(cachedData);
+            }
+          });
+          select.dataset.bound = "true";
+        }
       }
 
       function renderDependencyLegend() {
@@ -976,6 +1226,597 @@
           });
       }
 
+      function renderResponsibilityMatrix(data) {
+        closeMatrixEditor();
+
+        const table = d3.select("#responsibility-matrix");
+        table.selectAll("*").remove();
+
+        const roles = [...data.roles].sort((a, b) => a.name.localeCompare(b.name));
+        const roleLookup = new Map(roles.map((role) => [role.id, role.name]));
+
+        const thead = table.append("thead");
+        const headerRow = thead.append("tr");
+        headerRow.append("th").text("Lifecycle / Activity");
+        roles.forEach((role) => {
+          headerRow
+            .append("th")
+            .attr("class", "role-header" + (filters.role === role.id ? " highlight" : ""))
+            .text(role.name);
+        });
+
+        const tbody = table.append("tbody");
+        const raciFilterActive = filters.raci !== "all";
+        const roleFilterActive = filters.role !== "all";
+
+        data.activity_groups.forEach((group) => {
+          const groupActions = data.actions
+            .filter((action) => action.group_id === group.id)
+            .sort((a, b) => a.name.localeCompare(b.name));
+          if (!groupActions.length) {
+            return;
+          }
+
+          const groupRow = tbody.append("tr").attr("class", "matrix-group-row");
+          groupRow.append("th").attr("colspan", roles.length + 1).text(group.title);
+
+          groupActions.forEach((action) => {
+            const row = tbody.append("tr").attr("class", "matrix-row");
+            const actionHighlight = actionMatchesFilters(action.id);
+            if (actionHighlight) {
+              row.classed("highlight", true);
+            } else if (roleFilterActive || raciFilterActive) {
+              row.classed("dimmed", true);
+            }
+
+          row
+            .append("td")
+            .attr("class", "matrix-action-cell")
+            .text(action.name);
+
+          const assignments = actionAssignments.get(action.id) || new Map();
+
+          roles.forEach((role) => {
+            const lettersSet = assignments.get(role.id) || new Set();
+            const letters = Array.from(lettersSet).sort();
+            const cellData = {
+              actionId: action.id,
+              actionName: action.name,
+              roleId: role.id,
+              roleName: role.name,
+              letters,
+            };
+            const cell = row
+              .append("td")
+              .attr("class", "matrix-cell")
+              .attr("tabindex", 0)
+              .datum(cellData)
+              .on("click", handleMatrixCellClick)
+              .on("keydown", handleMatrixCellKeydown);
+            const matchesRole = !roleFilterActive || role.id === filters.role;
+            const matchesRaci = !raciFilterActive || letters.includes(filters.raci);
+            const hasLetters = letters.length > 0;
+
+            if (!hasLetters) {
+                cell.classed("empty", true).text("-");
+              } else {
+                cell.text(letters.join("/"));
+              }
+
+              if (hasLetters && actionHighlight && matchesRole && matchesRaci) {
+                cell.classed("highlight", true);
+              } else if (roleFilterActive || raciFilterActive) {
+                cell.classed("dimmed", true);
+              }
+
+              cell.append("title").text(() => {
+                if (!hasLetters) {
+                  return `${role.name} has no assignment`; 
+                }
+                return `${action.name}\nRole: ${role.name}\nResponsibility: ${letters.join("/")}`;
+              });
+            });
+          });
+        });
+      }
+
+      function setupDatasetControls() {
+        datasetStatusEl = document.getElementById("dataset-status");
+        const uploadInput = document.getElementById("dataset-upload");
+        const resetButton = document.getElementById("dataset-reset");
+        const filenameInput = document.getElementById("dataset-filename");
+        const downloadMatrixButton = document.getElementById("download-matrix");
+        const downloadJsonButton = document.getElementById("download-json");
+
+        if (uploadInput) {
+          uploadInput.addEventListener("change", (event) => {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (evt) => {
+              try {
+                const parsed = JSON.parse(evt.target.result);
+                applyData(parsed, {
+                  resetFilters: true,
+                  statusMessage: `Loaded dataset from ${file.name}`,
+                });
+              } catch (error) {
+                console.error("Failed to load dataset", error);
+                if (datasetStatusEl) {
+                  datasetStatusEl.textContent = `Failed to load ${file.name}: ${error.message}`;
+                }
+              }
+            };
+            reader.readAsText(file);
+            uploadInput.value = "";
+          });
+        }
+
+        if (resetButton) {
+          resetButton.addEventListener("click", () => {
+            if (originalData) {
+              applyData(originalData, {
+                resetFilters: true,
+                statusMessage: "Reverted to default dataset.",
+              });
+            }
+          });
+        }
+
+        if (downloadMatrixButton) {
+          downloadMatrixButton.addEventListener("click", () => {
+            if (!cachedData) return;
+            const baseInput = filenameInput ? filenameInput.value : "";
+            const base = (baseInput || "raci_matrix").trim() || "raci_matrix";
+            const filename = base.toLowerCase().endsWith(".csv") ? base : `${base}.csv`;
+            const csv = buildMatrixCsv(cachedData);
+            downloadFile(csv, filename, "text/csv");
+            if (datasetStatusEl) {
+              datasetStatusEl.textContent = `Downloaded ${filename}`;
+            }
+          });
+        }
+
+        if (downloadJsonButton) {
+          downloadJsonButton.addEventListener("click", () => {
+            if (!cachedData) return;
+            const baseInput = filenameInput ? filenameInput.value : "";
+            const base = (baseInput || "raci_matrix").trim() || "raci_matrix";
+            const filename = base.toLowerCase().endsWith(".json") ? base : `${base}.json`;
+            const json = JSON.stringify(cachedData, null, 2);
+            downloadFile(json, filename, "application/json");
+            if (datasetStatusEl) {
+              datasetStatusEl.textContent = `Downloaded ${filename}`;
+            }
+          });
+        }
+      }
+
+      function applyData(data, { resetFilters = false, statusMessage = null } = {}) {
+        const normalized = normalizeData(data || {});
+        cachedData = normalized;
+        actionAssignments = buildActionAssignments(normalized.relationships);
+        dependencyTypes = Array.from(new Set((normalized.activity_dependencies || []).map((d) => d.type))).sort();
+        dependencyColorScale = d3
+          .scaleOrdinal(dependencyTypes.length ? dependencyTypes : ["depends_on"], d3.schemeTableau10);
+
+        if (resetFilters) {
+          filters.role = "all";
+          filters.raci = "all";
+          filters.dependencyType = "all";
+        }
+
+        if (filters.role !== "all" && !normalized.roles.some((role) => role.id === filters.role)) {
+          filters.role = "all";
+        }
+        if (filters.dependencyType !== "all" && !dependencyTypes.includes(filters.dependencyType)) {
+          filters.dependencyType = "all";
+        }
+
+        renderSummary(normalized);
+        renderWarnings(normalized.metrics.action_warnings || []);
+        populateRoleFilter(normalized.roles);
+        populateDependencyTypeFilter();
+        renderLegend();
+        renderDependencyLegend();
+        closeMatrixEditor();
+        redraw();
+
+        const statusBanner = document.getElementById("status-banner");
+        if (statusBanner) {
+          statusBanner.textContent = `Loaded ${normalized.activity_groups.length} lifecycle groups • ${
+            normalized.actions.length
+          } actions`;
+        }
+
+        if (datasetStatusEl) {
+          if (statusMessage) {
+            datasetStatusEl.textContent = statusMessage;
+          } else {
+            datasetStatusEl.textContent = `Loaded dataset with ${normalized.activity_groups.length} groups and ${normalized.actions.length} actions.`;
+          }
+        }
+      }
+
+      function redraw() {
+        if (!cachedData) return;
+        renderSankey(cachedData);
+        renderDependencyGraph(cachedData);
+        renderResponsibilityMatrix(cachedData);
+      }
+
+      function buildMatrixCsv(data) {
+        const header = [
+          "group_id",
+          "group_title",
+          "action_id",
+          "action_name",
+          "role_id",
+          "role_name",
+          "raci",
+        ];
+        const groupLookup = new Map((data.activity_groups || []).map((group) => [group.id, group.title]));
+        const actionLookup = new Map((data.actions || []).map((action) => [action.id, action.name]));
+        const roleLookup = new Map((data.roles || []).map((role) => [role.id, role.name]));
+        const lines = [header.join(",")];
+        (data.relationships || []).forEach((rel) => {
+          const row = [
+            rel.group_id || "",
+            groupLookup.get(rel.group_id) || "",
+            rel.action_id || "",
+            actionLookup.get(rel.action_id) || "",
+            rel.role_id || "",
+            roleLookup.get(rel.role_id) || "",
+            rel.raci || "",
+          ].map((value) => {
+            const str = String(value ?? "");
+            return /[",\n]/.test(str) ? `"${str.replace(/"/g, '""')}"` : str;
+          });
+          lines.push(row.join(","));
+        });
+        return lines.join("\n");
+      }
+
+      function downloadFile(content, filename, mimeType) {
+        const blob = new Blob([content], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }
+
+      function handleMatrixCellClick(event, cellData) {
+        event.stopPropagation();
+        openMatrixEditor(event.currentTarget, cellData);
+      }
+
+      function handleMatrixCellKeydown(event, cellData) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openMatrixEditor(event.currentTarget, cellData);
+        }
+      }
+
+      function ensureMatrixEditor() {
+        if (matrixEditor) return matrixEditor;
+        matrixEditor = document.createElement("div");
+        matrixEditor.className = "matrix-editor";
+        matrixEditor.innerHTML = `
+          <div class="matrix-editor-options">
+            ${EDIT_LETTERS.map((letter) => `<label><input type="checkbox" value="${letter}"> ${letter}</label>`).join("")}
+          </div>
+          <div class="matrix-editor-actions">
+            <button type="button" class="secondary" data-action="cancel">Cancel</button>
+            <button type="button" data-action="save">Save</button>
+          </div>
+        `;
+        document.body.appendChild(matrixEditor);
+
+        matrixEditor.addEventListener("click", (event) => event.stopPropagation());
+
+        const saveButton = matrixEditor.querySelector('button[data-action="save"]');
+        const cancelButton = matrixEditor.querySelector('button[data-action="cancel"]');
+
+        if (saveButton) {
+          saveButton.addEventListener("click", () => {
+            if (!matrixEditorState) return;
+            const checkboxes = Array.from(matrixEditor.querySelectorAll('input[type="checkbox"]'));
+            const selectedLetters = checkboxes.filter((input) => input.checked).map((input) => input.value);
+            applyMatrixEdit(matrixEditorState.actionId, matrixEditorState.roleId, selectedLetters, matrixEditorState);
+            closeMatrixEditor();
+          });
+        }
+
+        if (cancelButton) {
+          cancelButton.addEventListener("click", () => {
+            closeMatrixEditor();
+          });
+        }
+
+        document.addEventListener("click", handleMatrixEditorDocumentClick);
+        document.addEventListener("keydown", handleMatrixEditorKeydown);
+
+        return matrixEditor;
+      }
+
+      function openMatrixEditor(target, cellData) {
+        if (!cachedData) return;
+        const editor = ensureMatrixEditor();
+        const previouslyEditing = matrixEditorState && matrixEditorState.anchor;
+        if (previouslyEditing && previouslyEditing !== target) {
+          previouslyEditing.classList.remove("editing");
+        }
+
+        matrixEditorState = {
+          actionId: cellData.actionId,
+          roleId: cellData.roleId,
+          actionName: cellData.actionName,
+          roleName: cellData.roleName,
+          anchor: target,
+        };
+
+        const checkboxes = Array.from(editor.querySelectorAll('input[type="checkbox"]'));
+        const currentLetters = (cellData.letters || []).map((letter) => letter.toUpperCase());
+        checkboxes.forEach((input) => {
+          input.checked = currentLetters.indexOf(input.value) >= 0;
+        });
+
+        target.classList.add("editing");
+
+        editor.style.display = "block";
+        editor.style.visibility = "hidden";
+        editor.style.left = "0px";
+        editor.style.top = "0px";
+
+        const rect = target.getBoundingClientRect();
+        const editorRect = editor.getBoundingClientRect();
+        const viewportWidth = document.documentElement.clientWidth;
+        const viewportHeight = document.documentElement.clientHeight || window.innerHeight;
+        const scrollX = window.pageXOffset || document.documentElement.scrollLeft || 0;
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+
+        let left = rect.left + scrollX;
+        let top = rect.bottom + scrollY + 6;
+
+        if (left + editorRect.width > scrollX + viewportWidth - 8) {
+          left = scrollX + viewportWidth - editorRect.width - 8;
+        }
+        if (top + editorRect.height > scrollY + viewportHeight - 8) {
+          top = rect.top + scrollY - editorRect.height - 6;
+        }
+
+        left = Math.max(scrollX + 8, left);
+        top = Math.max(scrollY + 8, top);
+
+        editor.style.left = `${left}px`;
+        editor.style.top = `${top}px`;
+        editor.style.visibility = "visible";
+      }
+
+      function closeMatrixEditor() {
+        if (!matrixEditor) return;
+        matrixEditor.style.display = "none";
+        if (matrixEditorState && matrixEditorState.anchor) {
+          matrixEditorState.anchor.classList.remove("editing");
+        }
+        matrixEditorState = null;
+      }
+
+      function handleMatrixEditorDocumentClick(event) {
+        if (!matrixEditor || matrixEditor.style.display !== "block") return;
+        if (!matrixEditor.contains(event.target)) {
+          closeMatrixEditor();
+        }
+      }
+
+      function handleMatrixEditorKeydown(event) {
+        if ((event.key === "Escape" || event.key === "Esc") && matrixEditor && matrixEditor.style.display === "block") {
+          event.stopPropagation();
+          closeMatrixEditor();
+        }
+      }
+
+      function rebuildRelationshipsFromAssignments() {
+        if (!cachedData) return;
+        const actionInfo = new Map((cachedData.actions || []).map((action) => [action.id, action]));
+        const relationships = [];
+
+        actionAssignments.forEach((roleMap, actionId) => {
+          const action = actionInfo.get(actionId);
+          if (!action) return;
+          roleMap.forEach((letterSet, roleId) => {
+            const letters = Array.from(letterSet).sort();
+            letters.forEach((letter) => {
+              relationships.push({
+                action_id: actionId,
+                role_id: roleId,
+                raci: letter,
+                group_id: action.group_id,
+              });
+            });
+          });
+        });
+
+        relationships.sort((a, b) => {
+          if (a.group_id !== b.group_id) return (a.group_id || "").localeCompare(b.group_id || "");
+          if (a.action_id !== b.action_id) return (a.action_id || "").localeCompare(b.action_id || "");
+          if (a.role_id !== b.role_id) return (a.role_id || "").localeCompare(b.role_id || "");
+          return a.raci.localeCompare(b.raci);
+        });
+
+        cachedData.relationships = relationships;
+      }
+
+      function recalculateMetrics(data) {
+        if (!data) return;
+
+        const roleCounts = new Map();
+        const groupCounts = new Map();
+        const actionWarnings = [];
+        const roleNameLookup = new Map((data.roles || []).map((role) => [role.id, role.name]));
+        const actions = data.actions || [];
+        const groups = data.activity_groups || [];
+
+        const createEmptyCounts = () => ({ R: 0, A: 0, C: 0, I: 0 });
+
+        actions.forEach((action) => {
+          const roleMap = actionAssignments.get(action.id) || new Map();
+          const responsibleRoles = [];
+          const accountableRoles = [];
+
+          roleMap.forEach((letterSet, roleId) => {
+            const letters = Array.from(letterSet);
+            let counts = roleCounts.get(roleId);
+            if (!counts) {
+              counts = createEmptyCounts();
+              roleCounts.set(roleId, counts);
+            }
+            letters.forEach((letter) => {
+              if (!counts[letter]) counts[letter] = 0;
+              counts[letter] += 1;
+
+              let groupCountsEntry = groupCounts.get(action.group_id);
+              if (!groupCountsEntry) {
+                groupCountsEntry = createEmptyCounts();
+                groupCounts.set(action.group_id, groupCountsEntry);
+              }
+              groupCountsEntry[letter] += 1;
+
+              if (letter === "R") {
+                responsibleRoles.push(roleId);
+              } else if (letter === "A") {
+                accountableRoles.push(roleId);
+              }
+            });
+          });
+
+          if (responsibleRoles.length === 0) {
+            actionWarnings.push({
+              action_id: action.id,
+              action_name: action.name,
+              issue: "Missing Responsible assignment",
+            });
+          } else if (responsibleRoles.length > 1) {
+            const names = responsibleRoles.map((roleId) => roleNameLookup.get(roleId) || roleId);
+            actionWarnings.push({
+              action_id: action.id,
+              action_name: action.name,
+              issue: `Multiple Responsible assignments: ${names.join(", ")}`,
+            });
+          }
+
+          if (accountableRoles.length === 0) {
+            actionWarnings.push({
+              action_id: action.id,
+              action_name: action.name,
+              issue: "Missing Accountable assignment",
+            });
+          } else if (accountableRoles.length > 1) {
+            const names = accountableRoles.map((roleId) => roleNameLookup.get(roleId) || roleId);
+            actionWarnings.push({
+              action_id: action.id,
+              action_name: action.name,
+              issue: `Multiple Accountable assignments: ${names.join(", ")}`,
+            });
+          }
+        });
+
+        const roleSummary = (data.roles || []).map((role) => {
+          const counts = roleCounts.get(role.id) || createEmptyCounts();
+          const countsCopy = {
+            R: counts.R || 0,
+            A: counts.A || 0,
+            C: counts.C || 0,
+            I: counts.I || 0,
+          };
+          const totalAssignments = countsCopy.R + countsCopy.A + countsCopy.C + countsCopy.I;
+          return {
+            role_id: role.id,
+            role_name: role.name,
+            aliases: role.aliases || [],
+            counts: countsCopy,
+            total_assignments: totalAssignments,
+          };
+        });
+
+        roleSummary.sort((a, b) => b.total_assignments - a.total_assignments || a.role_name.localeCompare(b.role_name));
+
+        const overloadedRoles = roleSummary
+          .slice()
+          .sort((a, b) => {
+            const aCore = (a.counts.R || 0) + (a.counts.A || 0);
+            const bCore = (b.counts.R || 0) + (b.counts.A || 0);
+            if (bCore !== aCore) return bCore - aCore;
+            return b.total_assignments - a.total_assignments;
+          })
+          .slice(0, 3);
+
+        const groupSummary = {};
+        groups.forEach((group) => {
+          const counts = groupCounts.get(group.id) || createEmptyCounts();
+          groupSummary[group.id] = {
+            title: group.title,
+            action_count: actions.filter((action) => action.group_id === group.id).length,
+            edge_distribution: {
+              R: counts.R || 0,
+              A: counts.A || 0,
+              C: counts.C || 0,
+              I: counts.I || 0,
+            },
+          };
+        });
+
+        data.metrics = {
+          ...(data.metrics || {}),
+          role_summary: roleSummary,
+          overloaded_roles: overloadedRoles,
+          action_warnings: actionWarnings,
+          group_summary: groupSummary,
+        };
+      }
+
+      function applyMatrixEdit(actionId, roleId, letters, meta) {
+        if (!cachedData) return;
+        const normalizedLetters = Array.from(
+          new Set(
+            (letters || [])
+              .map((letter) => (letter || "").toString().trim().toUpperCase())
+              .filter((letter) => EDIT_LETTERS.indexOf(letter) >= 0)
+          )
+        ).sort();
+
+        let roleMap = actionAssignments.get(actionId);
+        if (!roleMap) {
+          roleMap = new Map();
+          actionAssignments.set(actionId, roleMap);
+        }
+
+        if (normalizedLetters.length) {
+          roleMap.set(roleId, new Set(normalizedLetters));
+        } else {
+          roleMap.delete(roleId);
+          if (roleMap.size === 0) {
+            actionAssignments.delete(actionId);
+          }
+        }
+
+        rebuildRelationshipsFromAssignments();
+        recalculateMetrics(cachedData);
+        redraw();
+
+        if (datasetStatusEl) {
+          const displayLetters = normalizedLetters.length ? normalizedLetters.join("/") : "none";
+          const actionName = meta && meta.actionName ? meta.actionName : actionId;
+          const roleName = meta && meta.roleName ? meta.roleName : roleId;
+          datasetStatusEl.textContent = `Updated ${actionName} ↔ ${roleName}: ${displayLetters}`;
+        }
+      }
+
+
       function wrapText(textSelection, width, nodeHeight) {
         textSelection.each(function () {
           const text = d3.select(this);
@@ -1021,6 +1862,7 @@
         resizeTimeout = setTimeout(() => {
           renderSankey(cachedData);
           renderDependencyGraph(cachedData);
+          renderResponsibilityMatrix(cachedData);
         }, 200);
       });
 
