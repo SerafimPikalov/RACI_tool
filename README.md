@@ -4,7 +4,7 @@ Utilities for normalizing RACI tables, enriching the dataset, and exploring resp
 
 ## 🌐 Live Demo
 
-**Try the RACI Explorer online**: [https://yourusername.github.io/RACI_tool/web/](https://yourusername.github.io/RACI_tool/web/)
+**Try the RACI Explorer online**: [https://serafimpikalov.github.io/RACI_tool/web/](https://serafimpikalov.github.io/RACI_tool/web/)
 
 The interactive explorer includes:
 - **Lifecycle Sankey** highlighting role workloads
